@@ -20,13 +20,13 @@ export default function About() {
               I'm <span className="text-bright font-medium">Jasper Van Zeir</span>, a cybersecurity enthusiast and student currently studying Applied Computer Science at HOGENT, with a planned specialization in Cybersecurity at HOWEST starting 2026.
             </p>
             <p className="text-sm leading-relaxed">
-              Alongside my studies, I serve at <span className="text-accent">Belgian Defence</span> as <span className="text-bright font-medium">Sergeant Onder-Officier</span> — a role that has sharpened my discipline, operational thinking, and ability to perform under pressure.
+              Alongside my studies, I serve at <span className="text-accent">Belgian Defence</span> as <span className="text-bright font-medium">Sergeant</span>, a role that has sharpened my discipline, operational thinking, and ability to perform under pressure.
             </p>
             <p className="text-sm leading-relaxed">
-              Passionate about offensive security, I continuously sharpen my skills through CTF competitions, hands-on labs, and self-study — driven by a genuine curiosity for how systems can be broken and hardened.
+              Passionate about offensive security, I continuously sharpen my skills through CTF competitions, hands-on labs, and self-study, driven by a genuine curiosity for how systems can be broken and hardened.
             </p>
             <p className="text-sm leading-relaxed">
-              My background in Applied Computer Science also means I can <span className="text-bright font-medium">build applications</span> — Java, C#, React, Tailwind CSS — giving me a developer's perspective on security.
+              My background in Applied Computer Science also means I can <span className="text-bright font-medium">build applications</span>, Java, C#, React, Tailwind CSS, giving me a developer's perspective on security.
             </p>
             <div className="pt-4 font-mono text-xs border-t border-border">
               <span className="text-accent">~/focus</span>

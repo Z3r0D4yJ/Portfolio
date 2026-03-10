@@ -17,7 +17,11 @@ function HexGraphic() {
             filter: 'brightness(0.92) contrast(1.05) saturate(0.85)',
             background: 'linear-gradient(135deg, #131920, #080b0f)',
           }}>
-          <span className="text-6xl" style={{ filter: 'grayscale(0.3)' }}>🛡️</span>
+          <img 
+            src="/ProfilePicture.jpg" 
+            alt="Jasper Van Zeir"
+            className="w-full h-full object-cover object-[center_top]"
+          />
           <div className="absolute inset-0 rounded-full" style={{ background: 'linear-gradient(160deg, rgba(0,229,176,0.06) 0%, transparent 60%)' }} />
         </div>
       </div>

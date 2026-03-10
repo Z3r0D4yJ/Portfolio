@@ -1,8 +1,8 @@
 import { Section, SectionHeader } from './Section'
 
 const contactLinks = [
-  { icon: '✉', label: 'Email', val: 'jasper@vzeir-sec.be' },
-  { icon: '🔒', label: 'Signal', val: '+32 470 000 000' },
+  { icon: '✉', label: 'Email', val: 'contact@jaspervanzeir.com' },
+  { icon: '🔒', label: 'Signal', val: '+32 490 19 85 84' },
   { icon: 'in', label: 'LinkedIn', val: 'linkedin.com/in/jaspervanzeir' },
   { icon: '⌥', label: 'GitHub', val: 'github.com/jasper-vzeir' },
 ]

@@ -69,7 +69,7 @@ export default function Skills() {
         <div className="mt-14 pt-10 border-t border-border reveal">
           <div className="font-mono text-xs text-accent tracking-widest uppercase mb-2">Development Background</div>
           <p className="font-mono text-xs text-dim leading-relaxed mb-6 max-w-2xl">
-            As an Applied Computer Science student at HOGENT, I've built full applications from the ground up — giving me a practical understanding of how software works under the hood.
+            As an Applied Computer Science student at HOGENT, I've built full applications from the ground up, giving me a practical understanding of how software works under the hood.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border border border-border mb-10">
             {[
@@ -92,7 +92,7 @@ export default function Skills() {
           <div className="font-mono text-xs text-dim tracking-widest uppercase mb-6">Primary Toolset</div>
           <div className="flex flex-wrap gap-2">
             {tools.map((t) => (
-              <span key={t} className="font-mono text-xs px-3 py-1.5 border border-border text-dim hover:border-accent/40 hover:text-accent transition-all duration-200 cursor-default">{t}</span>
+              <span key={t} className="bg-surface font-mono text-xs px-3 py-1.5 border border-border text-dim hover:border-accent/40 hover:text-accent transition-all duration-200 cursor-default">{t}</span>
             ))}
           </div>
         </div>
