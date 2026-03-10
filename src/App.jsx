@@ -4,10 +4,9 @@ import MagneticCursor from './components/MagneticCursor'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import About from './components/About'
-import Expertise from './components/Expertise'
 import Skills from './components/Skills'
-import Writeups from './components/Writeups'
 import Projects from './components/Projects'
+import Writeups from './components/Writeups'
 import Certifications from './components/Certifications'
 import Education from './components/Education'
 import Contact from './components/Contact'
@@ -55,10 +54,9 @@ export default function App() {
 
       <Hero />
       <About />
-      <Expertise />
       <Skills />
-      <Writeups />
       <Projects />
+      <Writeups />
       <Certifications />
       <Education />
       <Contact />

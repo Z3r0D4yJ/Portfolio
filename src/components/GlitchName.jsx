@@ -75,7 +75,7 @@ export function GlitchName() {
 }
 
 export function TypingTag() {
-  const full = 'Ethical Hacker · Pentester · Red Teamer'
+  const full = 'CS Student · Ethical Hacking · Red Team'
   const [displayed, setDisplayed] = useState('')
   const [done, setDone] = useState(false)
 

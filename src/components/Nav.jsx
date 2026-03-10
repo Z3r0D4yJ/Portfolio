@@ -21,7 +21,7 @@ export default function Nav({ activeSection }) {
     return () => { document.body.style.overflow = '' }
   }, [mobileOpen])
 
-  const links = ['about', 'expertise', 'skills', 'writeups', 'projects', 'certifications', 'education', 'contact']
+  const links = ['about', 'skills', 'projects', 'writeups', 'certifications', 'education', 'contact']
 
   return (
     <>

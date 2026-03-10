@@ -15,30 +15,37 @@ function TimelineItem({ year, degree, school, desc, delay = 0 }) {
 
 export default function Education() {
   return (
-    <Section id="education" className="py-24 border-t border-border">
+    <Section id="education" className="py-24 border-t border-border bg-surface">
       <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader num="// 07" title="EDUCATION" />
+        <SectionHeader num="// 06" title="EDUCATION & EXPERIENCE" />
         <div className="relative pl-6 border-l border-border">
           <TimelineItem
-            year="2026 — 2028"
+            year="2026 — 2029"
             degree="Bachelor Cybersecurity"
             school="HOWEST — Belgium"
-            desc="Upcoming specialization in cybersecurity — offensive security, ethical hacking, digital forensics, and secure software development."
+            desc="Upcoming specialization fully focused on cybersecurity — offensive security, ethical hacking, digital forensics, and secure software development. The next step after building a solid development foundation."
             delay={0}
+          />
+          <TimelineItem
+            year="Aug 2025 — Present"
+            degree="Sergeant — IT at Belgian Defence"
+            school="Belgian Armed Forces"
+            desc="Serving as Sergeant within IT at Defence. Gaining practical experience in discipline, responsibility, and professional operations while continuing to grow academically. Planning to combine this role with cybersecurity studies."
+            delay={100}
           />
           <TimelineItem
             year="2023 — 2026"
             degree="Bachelor Applied Computer Science"
             school="Hogeschool Gent (HOGENT) — Belgium"
-            desc="Currently studying applied computer science with a focus on software development, networking, and system administration. Expected graduation 2026."
-            delay={100}
+            desc="Full Stack Development track — deliberately chosen to build a deep understanding of how modern applications are designed, built, and deployed before specializing in security. Technologies: Java, C#, JavaScript, TypeScript, React, MySQL."
+            delay={200}
           />
           <TimelineItem
             year="2019 — Present"
-            degree="Continuous Training & CTF Competition"
-            school="HackTheBox · TryHackMe · SANS Institute"
-            desc="Active CTF participation and HTB Pro Labs. Self-taught offensive security practitioner continuously sharpening skills through hands-on labs and competitions."
-            delay={200}
+            degree="Self-Study & CTF Competitions"
+            school="HackTheBox · TryHackMe · BugForge"
+            desc="Actively building cybersecurity knowledge through CTF challenges (50+ completed), security labs, and hands-on practice. Documenting everything in writeups (20+) and personal GitBook. Particular interest in web security."
+            delay={300}
           />
         </div>
       </div>

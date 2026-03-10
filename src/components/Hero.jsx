@@ -51,18 +51,21 @@ export default function Hero() {
             <TypingTag />
             <GlitchName />
             <p className="font-sans text-muted mb-3 fade-in-up delay-2" style={{ fontSize: 'clamp(14px,1.5vw,18px)' }}>
-              Applied CS Student · Belgian Defence SGT · Aspiring Cybersecurity Expert
+              CS Student · Belgian Defence SGT · Aspiring Cybersecurity Specialist
             </p>
             <p className="font-mono text-xs text-dim leading-relaxed mb-10 max-w-lg fade-in-up delay-3">
-              Student, soldier, and self-taught hacker. Studying Applied Computer Science at HOGENT while serving as Sergeant at Belgian Defence — building the technical and operational foundation for a career in offensive security.
+              Studying Applied Computer Science at HOGENT with a Full Stack Development
+              track, while serving as Sergeant at Belgian Defence. Building a strong
+              foundation in both development and security, learning how systems are
+              built so I can understand how they break.
             </p>
             <div className="flex flex-wrap gap-3 fade-in-up delay-4">
-              <a href="#contact" className="font-mono text-xs uppercase tracking-widest px-7 py-3 bg-accent text-bg font-bold hover:bg-accent/90 transition-all duration-200 hover:-translate-y-0.5"
+              <a href="#contact" className="font-mono text-xs uppercase tracking-widest px-7 py-3 bg-accent text-bg font-bold hover:bg-accent/90 transition-all duration-200"
                 style={{ boxShadow: '0 0 24px rgba(0,229,176,0.25)' }}>
                 ▶ Get in Touch
               </a>
-              <a href="#expertise" className="font-mono text-xs uppercase tracking-widest px-7 py-3 border border-border text-dim hover:border-accent/40 hover:text-muted transition-all duration-200">
-                View Expertise
+              <a href="#about" className="font-mono text-xs uppercase tracking-widest px-7 py-3 border border-border text-dim hover:border-accent/40 hover:text-muted transition-all duration-200">
+                About Me
               </a>
             </div>
           </div>

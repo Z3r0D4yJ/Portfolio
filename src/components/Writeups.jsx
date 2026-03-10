@@ -1,9 +1,9 @@
 import { Section, SectionHeader } from './Section'
 
 const categories = [
-  { icon: '🎯', title: 'CTF Writeups', count: '20+', desc: 'Detailed walkthroughs of HackTheBox, BugForge, and other CTF challenges. Covering web, network, forensics, reverse engineering and more.', tags: ['HackTheBox', 'BugForge', 'Web', 'Network', 'Forensics', 'RE'] },
-  { icon: '🎓', title: 'School Notes', count: 'HOWEST', desc: 'Structured notes and summaries from my Applied Computer Science curriculum — networking, OS fundamentals, programming, and security concepts.', tags: ['Networking', 'Linux', 'Programming', 'Security', 'Databases'] },
-  { icon: '🔬', title: 'Research & Labs', count: 'Ongoing', desc: 'Personal research, tool documentation, lab setups, and self-study notes on offensive security topics and techniques.', tags: ['Pentesting', 'Tools', 'Lab Setup', 'Techniques'] },
+  { icon: '🎯', title: 'CTF Writeups', count: '20+', desc: 'Detailed walkthroughs of challenges from HackTheBox, TryHackMe, and BugForge. Focused on web security, network exploitation, forensics, and more.', tags: ['HackTheBox', 'TryHackMe', 'BugForge', 'Web', 'Network'] },
+  { icon: '🎓', title: 'School Notes', count: 'HOWEST', desc: 'Structured notes from my Applied Computer Science curriculum — networking, OS fundamentals, programming, databases, and security concepts.', tags: ['Networking', 'Linux', 'Java', 'C#', 'Databases'] },
+  { icon: '🔬', title: 'Research & Labs', count: 'Ongoing', desc: 'Personal research, tool documentation, lab setups, and self-study notes on security topics. Eventually also bachelor thesis projects.', tags: ['Security Labs', 'Tools', 'Self-Study', 'Thesis'] },
 ]
 
 export default function Writeups() {
@@ -21,7 +21,7 @@ export default function Writeups() {
               <div className="font-display text-2xl text-bright tracking-wider mb-1">z3r0d4yj-docs</div>
               <div className="font-mono text-xs text-dim mb-2">z3r0d4yj.gitbook.io/z3r0d4yj-docs</div>
               <p className="font-mono text-xs text-dim/80 max-w-lg leading-relaxed">
-                My personal knowledge base — 20+ CTF writeups from HackTheBox, BugForge & more, plus everything I've learned at HOGENT.
+                My personal knowledge base, CTF writeups, school notes, lab documentation, and everything I learn along the way. All publicly available.
               </p>
             </div>
           </div>
