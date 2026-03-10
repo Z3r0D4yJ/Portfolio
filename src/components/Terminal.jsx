@@ -149,7 +149,7 @@ export default function Terminal() {
   const hasInteracted = cmdHistory.length > 0
 
   return (
-    <div style={{ width: 420, maxWidth: '100%' }}>
+    <div className="hidden lg:block" style={{ width: 420, maxWidth: '100%' }}>
       <div
         className="terminal-glow border border-border rounded-md overflow-hidden bg-surface font-mono text-xs cursor-text"
         onClick={() => inputRef.current?.focus({ preventScroll: true })}
