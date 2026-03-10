@@ -23,7 +23,7 @@ export default function Education() {
             year="2026 — 2029"
             degree="Bachelor Cybersecurity"
             school="HOWEST — Belgium"
-            desc="Upcoming specialization fully focused on cybersecurity — offensive security, ethical hacking, digital forensics, and secure software development. The next step after building a solid development foundation."
+            desc="Upcoming specialization fully focused on cybersecurity, offensive security, ethical hacking, digital forensics, and secure software development. The next step after building a solid development foundation."
             delay={0}
           />
           <TimelineItem
@@ -37,7 +37,7 @@ export default function Education() {
             year="2023 — 2026"
             degree="Bachelor Applied Computer Science"
             school="Hogeschool Gent (HOGENT) — Belgium"
-            desc="Full Stack Development track — deliberately chosen to build a deep understanding of how modern applications are designed, built, and deployed before specializing in security. Technologies: Java, C#, JavaScript, TypeScript, React, MySQL."
+            desc="Full Stack Development track, deliberately chosen to build a deep understanding of how modern applications are designed, built, and deployed before specializing in security. Technologies: Java, C#, JavaScript, TypeScript, React, MySQL."
             delay={200}
           />
           <TimelineItem
