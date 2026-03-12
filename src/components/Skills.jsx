@@ -95,7 +95,7 @@ export default function Skills() {
             behind applications is just as crucial when it comes to securing them.
           </p>
 
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mb-10">
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-3 mb-10">
   {stack.map((s) => (
     <div
       key={s.name}

@@ -78,7 +78,7 @@ export default function Certifications() {
           The goal is to validate my practical skills with industry-recognized credentials.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
           {certs.map((c, i) => (
             <CertCard key={c.name} {...c} delay={i * 70} />
           ))}
