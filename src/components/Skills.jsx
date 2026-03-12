@@ -95,11 +95,11 @@ export default function Skills() {
             behind applications is just as crucial when it comes to securing them.
           </p>
 
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border border border-border mb-10">
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mb-10">
   {stack.map((s) => (
     <div
       key={s.name}
-      className="card-hover bg-bg rounded-sm p-5 flex gap-4 items-start"
+      className="card-hover bg-bg border border-border rounded-sm p-5 flex gap-4 items-start"
     >
       <div className="w-11 h-11 border border-border bg-surface rounded-sm flex items-center justify-center flex-shrink-0">
         <s.icon size={22} weight="duotone" className="text-accent" />

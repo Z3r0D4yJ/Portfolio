@@ -38,7 +38,7 @@ export default function Writeups() {
           rel="noopener noreferrer"
           className="reveal card-hover group flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border border-border bg-bg p-8 mb-10 no-underline"
         >
-          <div className="flex items-center gap-5">
+<         div className="flex flex-col md:flex-row md:items-center gap-5">
             <div className="w-14 h-14 border border-border bg-surface flex items-center justify-center flex-shrink-0">
               <BookOpenIcon size={28} weight="duotone" className="text-accent" />
             </div>
