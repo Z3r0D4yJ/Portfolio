@@ -44,7 +44,7 @@ export default function Projects() {
             </div>
 
             {/* Right — terminal-style preview */}
-            <div className="lg:w-80 flex-shrink-0">
+            <div className="lg:w-80 flex-shrink-0 hidden lg:block">
               <div className="border border-border bg-surface rounded-md overflow-hidden font-mono text-xs">
                 <div className="flex items-center gap-2 px-4 py-2.5 bg-surface2 border-b border-border">
                   <div className="w-2.5 h-2.5 rounded-full bg-warn opacity-80" />
