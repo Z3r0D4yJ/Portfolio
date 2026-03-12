@@ -67,7 +67,7 @@ export default function Contact() {
                     className="flex items-center gap-4 border border-border bg-surface p-4 hover:border-accent/30 transition-all duration-200 group no-underline"
                   >
 
-                    <span className="w-8 flex justify-center">
+                    <span className="flex justify-center w-10 h-10 border border-border bg-surface2 rounded-sm flex items-center justify-center flex-shrink-0">
                       <Icon
                         size={20}
                         weight="duotone"

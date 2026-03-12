@@ -12,7 +12,9 @@ export default function Projects() {
             {/* Left — project info */}
             <div className="flex-1">
             <div className="flex items-center gap-3 mb-4">
+                          <div className="w-14 h-14 border border-border bg-surface2 flex items-center justify-center flex-shrink-0">
               <ShieldCheckIcon size={28} weight="duotone" className="text-accent" />
+            </div>
               <span className="font-mono text-xs px-2 py-1 border border-accent/20 text-accent bg-accent/5">
                 In Development
               </span>
