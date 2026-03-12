@@ -1,4 +1,5 @@
 import { Section, SectionHeader } from './Section'
+import { ShieldCheckIcon } from "@phosphor-icons/react"
 
 export default function Projects() {
   return (
@@ -10,10 +11,12 @@ export default function Projects() {
           <div className="flex flex-col lg:flex-row gap-10">
             {/* Left — project info */}
             <div className="flex-1">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-2xl">🛡️</span>
-                <span className="font-mono text-xs px-2 py-1 border border-accent/20 text-accent bg-accent/5">In Development</span>
-              </div>
+            <div className="flex items-center gap-3 mb-4">
+              <ShieldCheckIcon size={28} weight="duotone" className="text-accent" />
+              <span className="font-mono text-xs px-2 py-1 border border-accent/20 text-accent bg-accent/5">
+                In Development
+              </span>
+            </div>
 
               <h3 className="font-display text-3xl text-bright tracking-wider mb-3">
                 Phishing URL Detector
