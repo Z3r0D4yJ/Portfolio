@@ -1,6 +1,13 @@
 import { useState, useEffect, useRef } from 'react'
 import { Section, SectionHeader } from './Section'
-import { CoffeeIcon, FileCSharpIcon, AtomIcon, PaletteIcon } from "@phosphor-icons/react"
+import { 
+  CoffeeIcon, 
+  FileCSharpIcon, 
+  AtomIcon, 
+  PaletteIcon,
+  BracketsCurlyIcon,
+  DatabaseIcon
+} from "@phosphor-icons/react"
 
 function SkillBar({ name, pct, visible, delay = 0 }) {
   return (
@@ -9,6 +16,7 @@ function SkillBar({ name, pct, visible, delay = 0 }) {
         <span className="font-mono text-xs text-muted">{name}</span>
         <span className="font-mono text-xs text-accent">{pct}%</span>
       </div>
+
       <div className="h-px bg-border relative overflow-hidden">
         <div
           className={visible ? 'animate-skill-fill h-full bg-gradient-to-r from-accent to-blue' : 'h-full'}
@@ -35,14 +43,65 @@ const securitySkills = [
   { name: 'Python Scripting', pct: 65 },
 ]
 
-const tools = ['Burp Suite', 'Nmap', 'Wireshark', 'Metasploit', 'Ghidra', 'BloodHound', 'Gobuster', 'Hydra', 'John the Ripper', 'SQLMap', 'Linux CLI', 'Git', 'Docker', 'VS Code']
+const tools = [
+  'Burp Suite',
+  'Nmap',
+  'Wireshark',
+  'Metasploit',
+  'Ghidra',
+  'BloodHound',
+  'Gobuster',
+  'Hydra',
+  'John the Ripper',
+  'SQLMap',
+  'Linux CLI',
+  'Git',
+  'Docker',
+  'VS Code'
+]
 
 const stack = [
-  { icon: CoffeeIcon, name: 'Java', desc: 'OOP, backend logic, architecture' },
-  { icon: FileCSharpIcon, name: 'C#', desc: '.NET development, desktop & web' },
-  { icon: AtomIcon, name: 'React', desc: 'Component-based frontend dev' },
-  { icon: PaletteIcon, name: 'Tailwind CSS', desc: 'Utility-first styling' },
+  { icon: CoffeeIcon, name: 'Java', desc: 'OOP, backend logic, architecture', type: 'Backend' },
+  { icon: FileCSharpIcon, name: 'C# / .NET', desc: '.NET development, desktop & web', type: 'Backend' },
+  { icon: BracketsCurlyIcon, name: 'JavaScript / TypeScript', desc: 'Modern web logic, APIs, async programming', type: 'Frontend' },
+  { icon: AtomIcon, name: 'React', desc: 'Component-based frontend dev', type: 'Frontend' },
+  { icon: PaletteIcon, name: 'Tailwind CSS', desc: 'Utility-first styling & responsive UI', type: 'UI' },
+  { icon: DatabaseIcon, name: 'MySQL', desc: 'Relational databases, queries & schema design', type: 'Backend' },
 ]
+
+function DevCard({ icon, name, desc, type }) {
+  const Icon = icon
+
+  const typeStyle = {
+    Backend: 'text-blue border-blue/30 bg-blue/5',
+    Frontend: 'text-accent border-accent/30 bg-accent/5',
+    UI: 'text-purple border-purple/30 bg-purple/5',
+  }
+
+  return (
+    <div className="card-hover bg-bg p-5 flex gap-4 items-start">
+      
+      <div className="w-11 h-11 border border-border bg-surface rounded-sm flex items-center justify-center flex-shrink-0">
+        <Icon size={22} weight="duotone" className="text-accent" />
+      </div>
+
+      <div>
+        <div className="font-display text-bright tracking-wider mb-1">
+          {name}
+        </div>
+
+        <div className="font-mono text-xs text-dim mb-2 leading-relaxed">
+          {desc}
+        </div>
+
+        <span className={`font-mono text-xs px-2 py-0.5 border rounded-sm ${typeStyle[type]}`}>
+          {type}
+        </span>
+      </div>
+
+    </div>
+  )
+}
 
 export default function Skills() {
   const [skillsVisible, setSkillsVisible] = useState(false)
@@ -61,13 +120,16 @@ export default function Skills() {
   return (
     <Section id="skills" className="py-24 border-t border-border bg-surface">
       <div className="max-w-7xl mx-auto px-6" ref={skillsRef}>
+
         <SectionHeader num="// 02" title="TECHNICAL SKILLS" />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+
           <div>
             <div className="font-mono text-xs text-accent tracking-widest uppercase mb-8 pb-3 border-b border-border reveal">
               Development
             </div>
+
             {devSkills.map((s, i) => (
               <SkillBar key={s.name} {...s} visible={skillsVisible} delay={i * 100} />
             ))}
@@ -77,14 +139,18 @@ export default function Skills() {
             <div className="font-mono text-xs text-accent tracking-widest uppercase mb-8 pb-3 border-b border-border reveal">
               Security & CTF
             </div>
+
             {securitySkills.map((s, i) => (
               <SkillBar key={s.name} {...s} visible={skillsVisible} delay={i * 100} />
             ))}
           </div>
+
         </div>
 
         {/* Dev Background */}
+
         <div className="mt-14 pt-10 border-t border-border reveal">
+
           <div className="font-mono text-xs text-accent tracking-widest uppercase mb-2">
             Why Full Stack First
           </div>
@@ -95,31 +161,18 @@ export default function Skills() {
             behind applications is just as crucial when it comes to securing them.
           </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-10 gap-px bg-border border border-border rounded-sm overflow-hidden">
-          {stack.map((s) => (
-            <div
-              key={s.name}
-              className="card-hover bg-bg p-5 flex gap-4 items-start"
-            >
-              <div className="w-11 h-11 border border-border bg-surface rounded-sm flex items-center justify-center flex-shrink-0">
-                <s.icon size={22} weight="duotone" className="text-accent" />
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-10 gap-px bg-border border border-border rounded-sm overflow-hidden">
+            {stack.map((s) => (
+              <DevCard key={s.name} {...s} />
+            ))}
+          </div>
 
-              <div>
-                <div className="font-display text-bright tracking-wider mb-1">
-                  {s.name}
-                </div>
-                <div className="font-mono text-xs text-dim leading-relaxed">
-                  {s.desc}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
         </div>
 
-        {/* Tool badges */}
+        {/* Tools */}
+
         <div className="pt-10 border-t border-border reveal">
+
           <div className="font-mono text-xs text-dim tracking-widest uppercase mb-6">
             Tools I Work With
           </div>
@@ -134,6 +187,7 @@ export default function Skills() {
               </span>
             ))}
           </div>
+
         </div>
 
       </div>
