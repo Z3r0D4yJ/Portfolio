@@ -22,6 +22,7 @@ export default {
         dim: '#4a6274',
         muted: '#8ba3b5',
         bright: '#e8f4ff',
+        purple: '#8b5cf6'
       },
       animation: {
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
