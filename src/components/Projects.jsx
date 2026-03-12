@@ -1,11 +1,42 @@
 import { Section, SectionHeader } from './Section'
-import { ShieldCheckIcon } from "@phosphor-icons/react"
+import { ShieldCheckIcon, GithubLogoIcon  } from "@phosphor-icons/react"
 
 export default function Projects() {
   return (
     <Section id="projects" className="py-24 border-t border-border">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader num="// 03" title="PROJECTS" />
+        {/* Gitbook banner */}
+        <a
+          href="https://z3r0d4yj.gitbook.io/z3r0d4yj-docs"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="reveal card-hover group flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border border-border bg-surface p-8 mb-10 no-underline"
+        >
+<         div className="flex flex-col md:flex-row md:items-center gap-5">
+            <div className="w-14 h-14 border border-border bg-surface2 flex items-center justify-center flex-shrink-0">
+              <GithubLogoIcon size={28} weight="duotone" className="text-accent" />
+            </div>
+
+            <div>
+              <div className="font-display text-2xl text-bright tracking-wider mb-1">
+                z3r0d4yj-repos
+              </div>
+
+              <div className="font-mono text-xs text-dim mb-2">
+                z3r0d4yj.gitbook.io/z3r0d4yj-docs
+              </div>
+
+              <p className="font-mono text-xs text-dim/80 max-w-lg leading-relaxed">
+                My personal knowledge base, CTF writeups, school notes, lab documentation, and everything I learn along the way. All publicly available.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex-shrink-0 font-mono text-xs px-5 py-2.5 border border-accent/40 text-accent group-hover:bg-accent group-hover:text-bg transition-all duration-200 whitespace-nowrap">
+            Visit Repos →
+          </div>
+        </a>
 
         <div className="border border-border bg-surface p-8 reveal">
           <div className="flex flex-col lg:flex-row gap-10">
