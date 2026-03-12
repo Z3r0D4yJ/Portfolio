@@ -1,15 +1,43 @@
 import { useState, useEffect } from 'react'
 import { GlitchLogo } from './GlitchName'
+import { SunIcon, MoonIcon } from "@phosphor-icons/react"
 
 export default function Nav({ activeSection }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [dark, setDark] = useState(true)
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', fn, { passive: true })
     return () => window.removeEventListener('scroll', fn)
   }, [])
+
+  // Theme initialization
+  useEffect(() => {
+    const stored = localStorage.getItem("theme")
+    if (stored === "light") {
+      document.documentElement.classList.remove("dark")
+      setDark(false)
+    } else {
+      document.documentElement.classList.add("dark")
+      setDark(true)
+    }
+  }, [])
+
+  const toggleTheme = () => {
+    const isDark = document.documentElement.classList.contains("dark")
+
+    if (isDark) {
+      document.documentElement.classList.remove("dark")
+      localStorage.setItem("theme", "light")
+      setDark(false)
+    } else {
+      document.documentElement.classList.add("dark")
+      localStorage.setItem("theme", "dark")
+      setDark(true)
+    }
+  }
 
   // Lock body scroll when sidebar is open
   useEffect(() => {
@@ -27,6 +55,7 @@ export default function Nav({ activeSection }) {
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 border-b transition-[background-color,backdrop-filter] duration-300 ${scrolled ? 'bg-bg/95 backdrop-blur-md border-border' : 'bg-transparent border-transparent'}`}>
         <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+
           <GlitchLogo />
 
           {/* Desktop nav */}
@@ -43,52 +72,57 @@ export default function Nav({ activeSection }) {
           </div>
 
           <div className="flex items-center gap-4">
-            {/* Status indicator */}
-            <div className="hidden sm:flex items-center gap-2 font-mono text-xs text-dim">
-              <div className="w-2 h-2 rounded-full bg-accent" style={{ boxShadow: '0 0 8px rgba(0,229,176,0.8)', animation: 'pulse 2s infinite' }} />
-              Available
-            </div>
 
-            {/* Hamburger button — mobile only */}
+            {/* Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="w-9 h-9 flex items-center justify-center border border-border bg-surface hover:border-accent/40 transition-colors"
+              aria-label="Toggle theme"
+            >
+              {dark ? (
+                <SunIcon size={18} weight="duotone" className="text-accent" />
+              ) : (
+                <MoonIcon size={18} weight="duotone" className="text-accent" />
+              )}
+            </button>
+
+            {/* Hamburger button */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-[5px] group"
+              className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-[5px]"
               aria-label="Toggle menu"
             >
               <span className={`block w-5 h-px bg-muted transition-all duration-300 ${mobileOpen ? 'rotate-45 translate-y-[3px]' : ''}`} />
               <span className={`block w-5 h-px bg-muted transition-all duration-300 ${mobileOpen ? 'opacity-0' : ''}`} />
               <span className={`block w-5 h-px bg-muted transition-all duration-300 ${mobileOpen ? '-rotate-45 -translate-y-[3px]' : ''}`} />
             </button>
+
           </div>
         </div>
       </nav>
 
-      {/* Mobile overlay backdrop */}
+      {/* Mobile overlay */}
       <div
         className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300 md:hidden ${mobileOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         onClick={() => setMobileOpen(false)}
       />
 
-      {/* Mobile sidebar — slides in from right */}
+      {/* Mobile sidebar */}
       <div
         className={`fixed top-0 right-0 bottom-0 z-50 w-72 bg-surface border-l border-border transition-transform duration-300 ease-out md:hidden ${mobileOpen ? 'translate-x-0' : 'translate-x-full'}`}
       >
-        {/* Sidebar header */}
+
         <div className="flex items-center justify-between px-6 h-14 border-b border-border">
           <span className="font-mono text-xs text-accent tracking-widest">// NAVIGATE</span>
+
           <button
             onClick={() => setMobileOpen(false)}
             className="w-8 h-8 flex items-center justify-center text-dim hover:text-accent transition-colors"
-            aria-label="Close menu"
           >
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <line x1="1" y1="1" x2="13" y2="13" />
-              <line x1="13" y1="1" x2="1" y2="13" />
-            </svg>
+            ✕
           </button>
         </div>
 
-        {/* Sidebar links */}
         <div className="px-6 py-6 flex flex-col gap-1">
           {links.map((l, i) => (
             <a
@@ -107,16 +141,6 @@ export default function Nav({ activeSection }) {
           ))}
         </div>
 
-        {/* Sidebar footer */}
-        <div className="absolute bottom-0 left-0 right-0 px-6 py-5 border-t border-border">
-          <div className="flex items-center gap-2 font-mono text-xs text-dim mb-3">
-            <div className="w-2 h-2 rounded-full bg-accent" style={{ boxShadow: '0 0 8px rgba(0,229,176,0.8)', animation: 'pulse 2s infinite' }} />
-            Available for engagements
-          </div>
-          <div className="font-mono text-xs text-dim/40">
-            <span className="text-accent">jasper@vzeir</span>:~$ _
-          </div>
-        </div>
       </div>
     </>
   )

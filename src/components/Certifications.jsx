@@ -42,7 +42,8 @@ function CertCard({ icon, name, issuer, year, status, delay = 0 }) {
 
   return (
     <div
-      className="card-hover border border-border bg-surface rounded-sm p-5 flex gap-4 items-start reveal"
+      // Geen borders of negatieve marges meer nodig hier
+      className="card-hover bg-surface p-5 flex gap-4 items-start reveal"
       style={{ transitionDelay: `${delay}ms` }}
     >
       <div className="w-11 h-11 border border-border bg-surface2 rounded-sm flex items-center justify-center flex-shrink-0">
@@ -78,7 +79,8 @@ export default function Certifications() {
           The goal is to validate my practical skills with industry-recognized credentials.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
+        {/* Hier zit de Bento-magie: gap-px met bg-border */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border border border-border rounded-sm overflow-hidden">
           {certs.map((c, i) => (
             <CertCard key={c.name} {...c} delay={i * 70} />
           ))}

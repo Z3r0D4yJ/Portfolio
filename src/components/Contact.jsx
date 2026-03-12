@@ -54,51 +54,48 @@ export default function Contact() {
               I'd love to hear from you.
             </p>
 
-            <div className="space-y-2">
-              {contactLinks.map((l) => {
-                const Icon = l.icon
+<div className="flex flex-col">
+  {contactLinks.map((l, i) => {
+    const Icon = l.icon
+    return (
+      <a
+        key={l.label}
+        href={l.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="card-hover bg-surface p-4 flex items-center gap-4 group border border-border border-b-0 last:border-b rounded-none transition-all duration-200"
+      >
+        <span className="flex justify-center w-10 h-10 border border-border bg-surface2 rounded-sm items-center flex-shrink-0">
+          <Icon
+            size={20}
+            weight="duotone"
+            className="text-dim group-hover:text-accent transition-colors"
+          />
+        </span>
 
-                return (
-                  <a
-                    key={l.label}
-                    href={l.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-4 border border-border bg-surface p-4 hover:border-accent/30 transition-all duration-200 group no-underline"
-                  >
+        <div>
+          <div className="font-mono text-xs text-dim mb-0.5">
+            {l.label}
+          </div>
+          <div className="font-mono text-xs text-muted group-hover:text-accent transition-colors">
+            {l.val}
+          </div>
+        </div>
 
-                    <span className="flex justify-center w-10 h-10 border border-border bg-surface2 rounded-sm flex items-center justify-center flex-shrink-0">
-                      <Icon
-                        size={20}
-                        weight="duotone"
-                        className="text-dim group-hover:text-accent transition-colors"
-                      />
-                    </span>
-
-                    <div>
-                      <div className="font-mono text-xs text-dim mb-0.5">
-                        {l.label}
-                      </div>
-
-                      <div className="font-mono text-xs text-muted group-hover:text-accent transition-colors">
-                        {l.val}
-                      </div>
-                    </div>
-
-                    <span className="ml-auto text-dim font-mono text-xs opacity-0 group-hover:opacity-100 transition-opacity">
-                      →
-                    </span>
-
-                  </a>
-                )
-              })}
-            </div>
-
+        <span className="ml-auto text-dim font-mono text-xs opacity-0 group-hover:opacity-100 transition-opacity">
+          →
+        </span>
+      </a>
+    )
+  })}
+</div>
           </div>
 
-          <div className="reveal space-y-4" style={{ transitionDelay: '100ms' }}>
+          {/* Rechterkant Bento Box: flex-col, gap-px, bg-border */}
+          <div className="reveal flex flex-col gap-px bg-border border border-border rounded-sm overflow-hidden" style={{ transitionDelay: '100ms' }}>
 
-            <div className="border border-border bg-surface p-5 font-mono text-xs leading-relaxed">
+            {/* Borders verwijderd */}
+            <div className="bg-surface p-5 font-mono text-xs leading-relaxed">
 
               <div className="text-accent mb-4 tracking-widest flex items-center gap-2">
                 <span
@@ -143,7 +140,8 @@ export default function Contact() {
 
             </div>
 
-            <div className="border border-border bg-surface p-5 font-mono text-xs">
+            {/* Borders verwijderd */}
+            <div className="bg-surface p-5 font-mono text-xs">
 
               <div className="text-accent mb-3 tracking-widest">
                 // ABOUT THIS SITE
