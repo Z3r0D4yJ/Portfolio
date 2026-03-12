@@ -14,7 +14,9 @@ function SkillBar({ name, pct, visible, delay = 0 }) {
     <div className="mb-5 reveal" style={{ transitionDelay: `${delay}ms` }}>
       <div className="flex justify-between mb-2">
         <span className="font-mono text-xs text-muted">{name}</span>
-        <span className="font-mono text-xs text-accent">{pct}%</span>
+        <span className="font-mono text-[11px] text-accent border border-accent/30 bg-accent/5 px-2 py-0.5 rounded-sm">
+          {pct}%
+        </span>
       </div>
 
       <div className="h-px bg-border relative overflow-hidden">
