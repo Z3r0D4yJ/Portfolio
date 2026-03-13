@@ -26,7 +26,7 @@ pipeline {
             steps {
                 // Kopieer de gebouwde bestanden naar de Apache directory
                 // Als het een simpele static site is zonder build, gebruik dan: sh 'rsync -avz --exclude=".git" . /var/www/html/'
-                sh 'rsync -avz dist/ /var/www/portfolio/'
+                sh 'rsync -avz --no-o --no-g dist/ /var/www/portfolio/'
             }
         }
     }
