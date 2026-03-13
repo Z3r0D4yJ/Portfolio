@@ -67,8 +67,8 @@ const stack = [
   { icon: FileCSharpIcon, name: 'C# / .NET', desc: '.NET development, desktop & web', type: 'Backend' },
   { icon: BracketsCurlyIcon, name: 'JavaScript / TypeScript', desc: 'Modern web logic, APIs, async programming', type: 'Frontend' },
   { icon: AtomIcon, name: 'React', desc: 'Component-based frontend dev', type: 'Frontend' },
-  { icon: PaletteIcon, name: 'Tailwind CSS', desc: 'Utility-first styling & responsive UI', type: 'UI' },
   { icon: DatabaseIcon, name: 'MySQL', desc: 'Relational databases, queries & schema design', type: 'Backend' },
+  { icon: PaletteIcon, name: 'Tailwind CSS', desc: 'Utility-first styling & responsive UI', type: 'UI' },
 ]
 
 function DevCard({ icon, name, desc, type }) {
