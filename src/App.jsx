@@ -46,7 +46,7 @@ export default function App() {
   }, [])
 
   return (
-    <div className="relative scanlines noise font-sans text-muted">
+    <div className="relative scanlines noise font-sans bg-bg text-muted transition-colors">
       <MagneticCursor />
       <ScrollProgress />
       <ParticleField />
@@ -62,7 +62,7 @@ export default function App() {
       <Contact />
 
       {/* Footer */}
-      <footer className="border-t border-border py-6 px-6">
+      <footer className="border-t border-border bg-surface/40 dark:bg-surface/20 py-6 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3">
           <span className="font-mono text-xs text-dim">
             <span className="text-accent">jasper@vzeir</span>:~$ <span className="text-dim/60">echo "Authorized testing only."</span>

@@ -2,13 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-bg: 248 250 252;
+  --color-surface: 241 245 249;
+  --color-surface2: 226 232 240;
+  --color-border: 203 213 225;
+  --color-accent: 0 175 140;
+  --color-blue: 37 99 235;
+  --color-warn: 220 38 38;
+  --color-dim: 71 85 105;
+  --color-muted: 51 65 85;
+  --color-bright: 15 23 42;
+  --color-purple: 124 58 237;
+}
+
+.dark {
+  --color-bg: 8 11 15;
+  --color-surface: 13 17 23;
+  --color-surface2: 19 25 32;
+  --color-border: 28 39 51;
+  --color-accent: 0 229 176;
+  --color-blue: 47 136 255;
+  --color-warn: 255 71 87;
+  --color-dim: 74 98 116;
+  --color-muted: 139 163 181;
+  --color-bright: 232 244 255;
+  --color-purple: 139 92 246;
+}
+
 /* ── Base ── */
 * {
   box-sizing: border-box;
 }
 
 body {
-  background: #080b0f;
+  background: rgb(var(--color-bg));
+  color: rgb(var(--color-muted));
   overflow-x: hidden;
 }
 
@@ -24,14 +53,14 @@ body {
   width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: #080b0f;
+  background: rgb(var(--color-bg));
 }
 ::-webkit-scrollbar-thumb {
-  background: #1c2733;
+  background: rgb(var(--color-border));
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #00e5b0;
+  background: rgb(var(--color-accent));
 }
 
 /* ── Scanlines ── */
@@ -71,7 +100,7 @@ body {
   display: inline-block;
   width: 10px;
   height: 16px;
-  background: #00e5b0;
+  background: rgb(var(--color-accent));
   vertical-align: middle;
   margin-left: 2px;
 }
@@ -113,7 +142,7 @@ body {
   left: 0;
   right: 0;
   height: 1px;
-  background: #00e5b0;
+  background: rgb(var(--color-accent));
   transform: scaleX(0);
   transition: transform 0.2s;
 }
@@ -187,7 +216,7 @@ body {
   left: 0;
   height: 2px;
   width: 0%;
-  background: #00e5b0;
+  background: rgb(var(--color-accent));
   z-index: 99998;
   transition: width 0.1s linear;
   box-shadow: 0 0 6px rgba(0, 229, 176, 0.5);

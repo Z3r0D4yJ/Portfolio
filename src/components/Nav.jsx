@@ -15,14 +15,12 @@ export default function Nav({ activeSection }) {
 
   // Theme initialization
   useEffect(() => {
-    const stored = localStorage.getItem("theme")
-    if (stored === "light") {
-      document.documentElement.classList.remove("dark")
-      setDark(false)
-    } else {
-      document.documentElement.classList.add("dark")
-      setDark(true)
-    }
+    const stored = localStorage.getItem('theme')
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const shouldUseDark = stored === 'dark' || (stored === null && prefersDark)
+
+    document.documentElement.classList.toggle('dark', shouldUseDark)
+    setDark(shouldUseDark)
   }, [])
 
   const toggleTheme = () => {
@@ -103,7 +101,7 @@ export default function Nav({ activeSection }) {
 
       {/* Mobile overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300 md:hidden ${mobileOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        className={`fixed inset-0 z-40 bg-slate-900/30 dark:bg-black/60 backdrop-blur-sm transition-opacity duration-300 md:hidden ${mobileOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         onClick={() => setMobileOpen(false)}
       />
 

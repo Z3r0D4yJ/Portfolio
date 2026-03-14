@@ -13,7 +13,7 @@ export default function Projects() {
           rel="noopener noreferrer"
           className="reveal card-hover group flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border border-border bg-surface p-8 mb-10 no-underline"
         >
-<         div className="flex flex-col md:flex-row md:items-center gap-5">
+          <div className="flex flex-col md:flex-row md:items-center gap-5">
             <div className="w-14 h-14 border border-border bg-surface2 flex items-center justify-center flex-shrink-0">
               <GithubLogoIcon size={28} weight="duotone" className="text-accent" />
             </div>
@@ -33,7 +33,7 @@ export default function Projects() {
             </div>
           </div>
 
-          <div className="flex-shrink-0 font-mono text-xs px-5 py-2.5 border border-accent/40 text-accent group-hover:bg-accent group-hover:text-bg transition-all duration-200 whitespace-nowrap">
+          <div className="flex-shrink-0 font-mono text-xs px-5 py-2.5 border border-accent/40 text-accent group-hover:bg-accent group-hover:text-slate-950 dark:group-hover:text-bg transition-all duration-200 whitespace-nowrap">
             Visit Repos →
           </div>
         </a>
