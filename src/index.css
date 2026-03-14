@@ -14,7 +14,13 @@
   --color-muted: 51 65 85;
   --color-bright: 15 23 42;
   --color-purple: 124 58 237;
+  --scanline-rgb: 15 23 42;
+  --scanline-opacity: 0.03;
+  --grid-opacity: 0.04;
+  --terminal-shadow: 15 23 42;
+  --hero-shadow: 15 23 42;
 }
+
 
 .dark {
   --color-bg: 8 11 15;
@@ -28,7 +34,13 @@
   --color-muted: 139 163 181;
   --color-bright: 232 244 255;
   --color-purple: 139 92 246;
+  --scanline-rgb: 0 0 0;
+  --scanline-opacity: 0.04;
+  --grid-opacity: 0.025;
+  --terminal-shadow: 0 0 0;
+  --hero-shadow: 0 0 0;
 }
+
 
 /* ── Base ── */
 * {
@@ -72,8 +84,8 @@ body {
     0deg,
     transparent,
     transparent 3px,
-    rgba(0, 0, 0, 0.04) 3px,
-    rgba(0, 0, 0, 0.04) 6px
+    rgb(var(--scanline-rgb) / var(--scanline-opacity)) 3px,
+    rgb(var(--scanline-rgb) / var(--scanline-opacity)) 6px
   );
   pointer-events: none;
   z-index: 9999;
@@ -82,16 +94,16 @@ body {
 /* ── Grid Background ── */
 .grid-bg {
   background-image: linear-gradient(
-      rgba(0, 229, 176, 0.025) 1px,
+      rgb(var(--color-accent) / var(--grid-opacity)) 1px,
       transparent 1px
     ),
-    linear-gradient(90deg, rgba(0, 229, 176, 0.025) 1px, transparent 1px);
+    linear-gradient(90deg, rgb(var(--color-accent) / var(--grid-opacity)) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
 /* ── Noise ── */
 .noise {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
 }
 
 /* ── Cursor Blink ── */
@@ -160,8 +172,8 @@ body {
     inset 0 1px 0 rgba(0, 229, 176, 0.1);
 }
 .terminal-glow {
-  box-shadow: 0 0 60px rgba(0, 229, 176, 0.08),
-    0 32px 80px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 60px rgb(var(--color-accent) / 0.08),
+    0 32px 80px rgb(var(--terminal-shadow) / 0.35);
 }
 
 /* ── Reveal ── */

@@ -13,7 +13,7 @@ function HexGraphic() {
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-[210px] h-[210px] rounded-full overflow-hidden border-2 border-accent/35 flex items-center justify-center"
           style={{
-            boxShadow: '0 0 0 4px rgba(0,229,176,0.07), 0 0 32px rgba(0,229,176,0.18), 0 0 80px rgba(0,0,0,0.8)',
+            boxShadow: '0 0 0 4px rgb(var(--color-accent) / 0.07), 0 0 32px rgb(var(--color-accent) / 0.18), 0 0 80px rgb(var(--hero-shadow) / 0.35)',
             filter: 'brightness(0.92) contrast(1.05) saturate(0.85)',
             background: 'linear-gradient(135deg, rgb(var(--color-surface2)), rgb(var(--color-bg)))',
           }}>
