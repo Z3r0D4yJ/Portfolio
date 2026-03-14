@@ -41,7 +41,7 @@ export default function Education() {
             delay={200}
           />
           <TimelineItem
-            year="2019 — Present"
+            year="2023 — Present"
             degree="Self-Study & CTF Competitions"
             school="HackTheBox · TryHackMe · BugForge"
             desc="Actively building cybersecurity knowledge through CTF challenges (50+ completed), security labs, and hands-on practice. Documenting everything in writeups (20+) and personal GitBook. Particular interest in web security."

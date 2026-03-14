@@ -24,11 +24,11 @@ export default function Projects() {
               </div>
 
               <div className="font-mono text-xs text-dim mb-2">
-                z3r0d4yj.gitbook.io/z3r0d4yj-docs
+                https://github.com/Z3r0D4yJ
               </div>
 
               <p className="font-mono text-xs text-dim/80 max-w-lg leading-relaxed">
-                My personal knowledge base, CTF writeups, school notes, lab documentation, and everything I learn along the way. All publicly available.
+                A collection of my projects, experiments, and development work. This includes school projects, personal builds, and technical explorations where I test ideas and learn new technologies.
               </p>
             </div>
           </div>
@@ -109,6 +109,18 @@ export default function Projects() {
         <p className="font-mono text-xs text-dim mt-6 reveal" style={{ transitionDelay: '100ms' }}>
           More projects coming soon as I continue building and learning. This section will grow over time.
         </p>
+                <div className="mt-8 flex items-center gap-4 reveal" style={{ transitionDelay: '200ms' }}>
+          <div className="h-px flex-1 bg-border max-w-xs" />
+
+          <a
+            href="https://github.com/Z3r0D4yJ"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-xs text-dim hover:text-accent transition-colors tracking-widest"
+          >
+            VIEW ALL PROJECTS →
+          </a>
+        </div>
       </div>
     </Section>
   )

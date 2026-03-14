@@ -77,7 +77,7 @@ function DevCard({ icon, name, desc, type }) {
   const typeStyle = {
     Backend: 'text-blue border-blue/30 bg-blue/5',
     Frontend: 'text-accent border-accent/30 bg-accent/5',
-    UI: 'text-purple-400 border-purple-400/30 bg-purple-400/5',
+    UI: 'text-purple border-purple/30 bg-purple/5',
   }
 
   return (
