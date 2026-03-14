@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -12,17 +13,17 @@ export default {
         sans: ['DM Sans', 'sans-serif'],
       },
       colors: {
-        bg: '#080b0f',
-        surface: '#0d1117',
-        surface2: '#131920',
-        border: '#1c2733',
-        accent: '#00e5b0',
-        blue: '#2f88ff',
-        warn: '#ff4757',
-        dim: '#4a6274',
-        muted: '#8ba3b5',
-        bright: '#e8f4ff',
-        purple: '#8b5cf6'
+        bg: 'rgb(var(--color-bg) / <alpha-value>)',
+        surface: 'rgb(var(--color-surface) / <alpha-value>)',
+        surface2: 'rgb(var(--color-surface2) / <alpha-value>)',
+        border: 'rgb(var(--color-border) / <alpha-value>)',
+        accent: 'rgb(var(--color-accent) / <alpha-value>)',
+        blue: 'rgb(var(--color-blue) / <alpha-value>)',
+        warn: 'rgb(var(--color-warn) / <alpha-value>)',
+        dim: 'rgb(var(--color-dim) / <alpha-value>)',
+        muted: 'rgb(var(--color-muted) / <alpha-value>)',
+        bright: 'rgb(var(--color-bright) / <alpha-value>)',
+        purple: 'rgb(var(--color-purple) / <alpha-value>)'
       },
       animation: {
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',

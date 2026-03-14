@@ -13,9 +13,9 @@ function HexGraphic() {
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-[210px] h-[210px] rounded-full overflow-hidden border-2 border-accent/35 flex items-center justify-center"
           style={{
-            boxShadow: '0 0 0 4px rgba(0,229,176,0.07), 0 0 32px rgba(0,229,176,0.18), 0 0 80px rgba(0,0,0,0.8)',
+            boxShadow: '0 0 0 4px rgb(var(--color-accent) / 0.07), 0 0 32px rgb(var(--color-accent) / 0.18), 0 0 80px rgb(var(--hero-shadow) / 0.35)',
             filter: 'brightness(0.92) contrast(1.05) saturate(0.85)',
-            background: 'linear-gradient(135deg, #131920, #080b0f)',
+            background: 'linear-gradient(135deg, rgb(var(--color-surface2)), rgb(var(--color-bg)))',
           }}>
           <img 
             src="/ProfilePicture.jpg" 
@@ -60,7 +60,7 @@ export default function Hero() {
               built so I can understand how they break.
             </p>
             <div className="flex flex-wrap gap-3 fade-in-up delay-4">
-              <a href="#contact" className="font-mono text-xs uppercase tracking-widest px-7 py-3 bg-accent text-bg font-bold hover:bg-accent/90 transition-all duration-200"
+              <a href="#contact" className="font-mono text-xs uppercase tracking-widest px-7 py-3 bg-accent text-slate-950 dark:text-bg font-bold hover:bg-accent/90 transition-all duration-200"
                 style={{ boxShadow: '0 0 24px rgba(0,229,176,0.25)' }}>
                 ▶ Get in Touch
               </a>
