@@ -1,67 +1,79 @@
 import { Section, SectionHeader } from './Section'
-import { LockKey, Globe, ClipboardText, Cloud } from "@phosphor-icons/react"
+import {
+  ShieldCheck,      // Pre-Security  → foundational protection
+  Eye,              // SOC Level 1   → monitoring / watching
+  Bug,              // Jr Pen Tester → bugs / exploits
+  Sword,            // CPTS          → offensive / attacking
+} from "@phosphor-icons/react";
 
 const certs = [
   {
-    icon: LockKey,
-    name: 'OSCP',
-    issuer: 'Offensive Security Certified Professional',
+    icon: ShieldCheck,
+    firm: 'TryHackMe',
+    name: 'Pre-Security',
+    issuer: 'Learning Path Completion',
+    year: '2024',
+    status: 'planned'
+  },
+  {
+    icon: Eye,
+    firm: 'TryHackMe',
+    name: 'SOC Level 1',
+    issuer: 'Learning Path Completion',
+    year: '2024',
+    status: 'planned'
+  },
+  {
+    icon: Bug,
+    firm: 'TryHackMe',
+    name: 'Jr Penetration Tester',
+    issuer: 'Learning Path Completion',
     year: 'Planned',
     status: 'planned'
   },
   {
-    icon: Globe,
-    name: 'eWPT',
-    issuer: 'eLearnSecurity Web Application Penetration Tester',
+    icon: Sword,
+    firm: 'Hack The Box',
+    name: 'CPTS',
+    issuer: 'HTB Certified Penetration Testing Specialist',
     year: 'Planned',
     status: 'planned'
-  },
-  {
-    icon: ClipboardText,
-    name: 'CEH',
-    issuer: 'Certified Ethical Hacker — EC-Council',
-    year: 'Planned',
-    status: 'planned'
-  },
-  {
-    icon: Cloud,
-    name: 'CompTIA Security+',
-    issuer: 'CompTIA Security Fundamentals',
-    year: 'Considering',
-    status: 'considering'
   },
 ]
 
 const statusStyle = {
-  planned: 'text-accent border-accent/30 bg-accent/5',
-  considering: 'text-blue border-blue/30 bg-blue/5',
+  earned:  'border-green-400/20 text-green-400 bg-green-400/5',
+  planned: 'border-accent/20 text-accent bg-accent/5',
 }
 
-function CertCard({ icon, name, issuer, year, status, delay = 0 }) {
-  const Icon = icon
+const firmStyle = {
+  'TryHackMe':    { badge: 'border-[#ff4655]/20 text-[#ff4655] bg-[#ff4655]/5', icon: 'text-accent' },
+  'Hack The Box': { badge: 'border-[#9fef00]/20 text-[#9fef00] bg-[#9fef00]/5', icon: 'text-accent' },
+}
+
+const badge = 'font-mono text-xs px-2 py-1 border whitespace-nowrap'
+
+function CertCard({ icon: Icon, firm, name, issuer, year, status, delay = 0 }) {
+  const fs = firmStyle[firm]
 
   return (
     <div
-      // Geen borders of negatieve marges meer nodig hier
       className="card-hover bg-surface p-5 flex gap-4 items-start reveal"
       style={{ transitionDelay: `${delay}ms` }}
     >
       <div className="w-11 h-11 border border-border bg-surface2 rounded-sm flex items-center justify-center flex-shrink-0">
-        <Icon size={22} weight="duotone" className="text-accent" />
+        <Icon size={22} weight="duotone" className={fs.icon} />
       </div>
 
-      <div>
-        <div className="font-display text-bright tracking-wider mb-1">
-          {name}
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center justify-between gap-2 mb-1">
+          <span className="font-display text-bright tracking-wider">{name}</span>
+          <span className={`${badge} ${fs.badge}`}>{firm}</span>
         </div>
 
-        <div className="font-mono text-xs text-dim mb-2">
-          {issuer}
-        </div>
+        <div className="font-mono text-xs text-dim mb-2">{issuer}</div>
 
-        <span className={`font-mono text-xs px-2 py-0.5 border rounded-sm ${statusStyle[status]}`}>
-          {year}
-        </span>
+        <span className={`${badge} ${statusStyle[status]}`}>{year}</span>
       </div>
     </div>
   )
@@ -72,17 +84,17 @@ export default function Certifications() {
     <Section id="certifications" className="py-24 border-t border-border">
       <div className="max-w-7xl mx-auto px-6">
 
-        <SectionHeader num="// 05" title="CERTIFICATION ROADMAP" />
+        <SectionHeader num="// 05" title="CERTIFICATIONS" />
 
         <p className="font-mono text-xs text-dim leading-relaxed mb-8 max-w-2xl reveal">
-          Certifications I'm planning to pursue alongside my cybersecurity studies at HOWEST.
-          The goal is to validate my practical skills with industry-recognized credentials.
+          Certifications and learning path completions earned through hands-on platforms,
+          alongside planned credentials to validate practical skills developed during my
+          cybersecurity studies at HOWEST.
         </p>
 
-        {/* Hier zit de Bento-magie: gap-px met bg-border */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border border border-border rounded-sm overflow-hidden">
           {certs.map((c, i) => (
-            <CertCard key={c.name} {...c} delay={i * 70} />
+            <CertCard key={`${c.firm}-${c.name}`} {...c} delay={i * 70} />
           ))}
         </div>
 

@@ -14,7 +14,7 @@ function SkillBar({ name, pct, visible, delay = 0 }) {
     <div className="mb-5 reveal" style={{ transitionDelay: `${delay}ms` }}>
       <div className="flex justify-between mb-2">
         <span className="font-mono text-xs text-muted">{name}</span>
-        <span className="font-mono text-[11px] text-accent border border-accent/30 bg-accent/5 px-2 py-0.5 rounded-sm">
+        <span className="font-mono text-xs px-2 py-1 border border-accent/20 text-accent bg-accent/5">
           {pct}%
         </span>
       </div>
@@ -71,36 +71,29 @@ const stack = [
   { icon: PaletteIcon, name: 'Tailwind CSS', desc: 'Utility-first styling & responsive UI', type: 'UI' },
 ]
 
+const typeColors = {
+  Backend:  { text: 'text-blue',   border: 'border-blue/20',   bg: 'bg-blue/5'   },
+  Frontend: { text: 'text-accent', border: 'border-accent/20', bg: 'bg-accent/5' },
+  UI:       { text: 'text-purple', border: 'border-purple/20', bg: 'bg-purple/5' },
+}
+
 function DevCard({ icon, name, desc, type }) {
   const Icon = icon
-
-  const typeStyle = {
-    Backend: 'text-blue border-blue/30 bg-blue/5',
-    Frontend: 'text-accent border-accent/30 bg-accent/5',
-    UI: 'text-purple border-purple/30 bg-purple/5',
-  }
+  const tc = typeColors[type]
 
   return (
     <div className="card-hover bg-bg p-5 flex gap-4 items-start">
-      
       <div className="w-11 h-11 border border-border bg-surface rounded-sm flex items-center justify-center flex-shrink-0">
         <Icon size={22} weight="duotone" className="text-accent" />
       </div>
 
       <div>
-        <div className="font-display text-bright tracking-wider mb-1">
-          {name}
-        </div>
-
-        <div className="font-mono text-xs text-dim mb-2 leading-relaxed">
-          {desc}
-        </div>
-
-        <span className={`font-mono text-xs px-2 py-0.5 border rounded-sm ${typeStyle[type]}`}>
+        <div className="font-display text-bright tracking-wider mb-1">{name}</div>
+        <div className="font-mono text-xs text-dim mb-2 leading-relaxed">{desc}</div>
+        <span className={`font-mono text-xs px-2 py-1 border ${tc.text} ${tc.border} ${tc.bg}`}>
           {type}
         </span>
       </div>
-
     </div>
   )
 }
@@ -115,7 +108,6 @@ export default function Skills() {
     }, { threshold: 0.2 })
 
     if (skillsRef.current) obs.observe(skillsRef.current)
-
     return () => obs.disconnect()
   }, [])
 
@@ -126,12 +118,10 @@ export default function Skills() {
         <SectionHeader num="// 02" title="TECHNICAL SKILLS" />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-
           <div>
             <div className="font-mono text-xs text-accent tracking-widest uppercase mb-8 pb-3 border-b border-border reveal">
               Development
             </div>
-
             {devSkills.map((s, i) => (
               <SkillBar key={s.name} {...s} visible={skillsVisible} delay={i * 100} />
             ))}
@@ -141,18 +131,14 @@ export default function Skills() {
             <div className="font-mono text-xs text-accent tracking-widest uppercase mb-8 pb-3 border-b border-border reveal">
               Security & CTF
             </div>
-
             {securitySkills.map((s, i) => (
               <SkillBar key={s.name} {...s} visible={skillsVisible} delay={i * 100} />
             ))}
           </div>
-
         </div>
 
         {/* Dev Background */}
-
         <div className="mt-14 pt-10 border-t border-border reveal">
-
           <div className="font-mono text-xs text-accent tracking-widest uppercase mb-2">
             Why Full Stack First
           </div>
@@ -168,13 +154,10 @@ export default function Skills() {
               <DevCard key={s.name} {...s} />
             ))}
           </div>
-
         </div>
 
         {/* Tools */}
-
         <div className="pt-10 border-t border-border reveal">
-
           <div className="font-mono text-xs text-dim tracking-widest uppercase mb-6">
             Tools I Work With
           </div>
@@ -183,13 +166,12 @@ export default function Skills() {
             {tools.map((t) => (
               <span
                 key={t}
-                className="font-mono text-xs px-3 py-1.5 border border-border text-dim hover:border-accent/30 hover:text-accent transition-all duration-200 cursor-default"
+                className="font-mono text-xs px-2 py-1 border border-border text-dim hover:border-accent/30 hover:text-accent transition-all duration-200 cursor-default"
               >
                 {t}
               </span>
             ))}
           </div>
-
         </div>
 
       </div>
