@@ -2,7 +2,7 @@ import { HeroName, TypingTag } from './GlitchName'
 
 function ProfilePhoto() {
   return (
-    <div className="w-48 h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden border-2 border-accent/25 flex-shrink-0"
+    <div className="w-36 h-36 md:w-44 md:h-44 lg:w-52 lg:h-52 rounded-full overflow-hidden border-2 border-accent/25 flex-shrink-0"
       style={{
         boxShadow: '0 0 0 4px rgba(0,229,176,0.05), 0 0 40px rgba(0,229,176,0.1)',
       }}>
@@ -22,24 +22,26 @@ export default function Hero() {
       <div className="absolute bottom-1/3 left-1/4 w-80 h-80 rounded-full" style={{ background: 'radial-gradient(ellipse, rgba(0,229,176,0.03) 0%, transparent 70%)', filter: 'blur(40px)' }} />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 w-full">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-16">
+        <div className="flex flex-col items-center text-center lg:flex-row lg:items-center lg:text-left lg:gap-16">
+          {/* Profile photo */}
+          <div className="mb-8 lg:mb-0 lg:order-last lg:flex-shrink-0 fade-in-up">
+            <ProfilePhoto />
+          </div>
+
+          {/* Content */}
           <div className="max-w-2xl">
-            {/* Profile photo on mobile */}
-            <div className="flex lg:hidden justify-center mb-8 fade-in-up">
-              <ProfilePhoto />
-            </div>
             <TypingTag />
             <HeroName />
             <p className="font-sans text-muted mb-3 fade-in-up delay-2" style={{ fontSize: 'clamp(14px,1.5vw,18px)' }}>
               CS Student · Belgian Defence SGT · Aspiring Cybersecurity Specialist
             </p>
-            <p className="font-mono text-xs text-dim leading-relaxed mb-10 max-w-lg fade-in-up delay-3">
+            <p className="font-mono text-xs text-dim leading-relaxed mb-10 max-w-lg fade-in-up delay-3 mx-auto lg:mx-0">
               Studying Applied Computer Science at HOGENT with a Full Stack Development
               track, while serving as Sergeant at Belgian Defence. Building a strong
               foundation in both development and security, learning how systems are
               built so I can understand how they break.
             </p>
-            <div className="flex flex-wrap gap-3 fade-in-up delay-4">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-3 fade-in-up delay-4">
               <a href="#contact" className="font-mono text-xs uppercase tracking-widest px-7 py-3 bg-accent text-bg font-bold hover:bg-accent/90 transition-all duration-200">
                 Get in Touch
               </a>
@@ -47,9 +49,6 @@ export default function Hero() {
                 About Me
               </a>
             </div>
-          </div>
-          <div className="hidden lg:flex flex-col items-center fade-in-up delay-5">
-            <ProfilePhoto />
           </div>
         </div>
       </div>

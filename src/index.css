@@ -37,17 +37,6 @@ body {
   background-size: 48px 48px;
 }
 
-/* ── Cursor Blink ── */
-.cursor-blink {
-  animation: blink 1s step-end infinite;
-  display: inline-block;
-  width: 10px;
-  height: 16px;
-  background: #00e5b0;
-  vertical-align: middle;
-  margin-left: 2px;
-}
-
 /* ── Card Hover ── */
 .card-hover {
   transition: all 0.25s ease;
@@ -94,12 +83,6 @@ body {
   transform: scaleX(1);
 }
 
-/* ── Terminal ── */
-.terminal-glow {
-  box-shadow: 0 0 40px rgba(0, 229, 176, 0.06),
-    0 16px 48px rgba(0, 0, 0, 0.5);
-}
-
 /* ── Reveal ── */
 .section-visible .reveal {
   opacity: 1 !important;
@@ -121,11 +104,6 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
 }
 
 /* ── Fade In Up ── */
