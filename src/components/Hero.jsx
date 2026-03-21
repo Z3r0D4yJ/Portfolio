@@ -1,5 +1,4 @@
 import { HeroName, TypingTag } from './GlitchName'
-import Terminal from './Terminal'
 
 function ProfilePhoto() {
   return (
@@ -49,11 +48,8 @@ export default function Hero() {
               </a>
             </div>
           </div>
-          <div className="flex flex-col items-center gap-10 fade-in-up delay-5">
-            <div className="hidden lg:block">
-              <ProfilePhoto />
-            </div>
-            <Terminal />
+          <div className="hidden lg:flex flex-col items-center fade-in-up delay-5">
+            <ProfilePhoto />
           </div>
         </div>
       </div>
