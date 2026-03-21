@@ -28,6 +28,7 @@ export default function CustomCursor() {
     if (!hasFinePointer) return
 
     setIsVisible(true)
+    document.body.classList.add('cursor-ready')
 
     const onMove = (e) => {
       mouseX.set(e.clientX)
@@ -66,6 +67,7 @@ export default function CustomCursor() {
     document.addEventListener('mouseenter', onEnter)
 
     return () => {
+      document.body.classList.remove('cursor-ready')
       window.removeEventListener('mousemove', onMove)
       document.removeEventListener('mouseover', onOver)
       document.removeEventListener('mouseout', onOut)

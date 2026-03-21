@@ -48,6 +48,20 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 w-full">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-16">
           <div className="max-w-2xl">
+            {/* Mobile-only profile picture */}
+            <div className="flex lg:hidden justify-center mb-8 fade-in-up">
+              <div className="w-28 h-28 rounded-full overflow-hidden border-2 border-accent/35"
+                style={{
+                  boxShadow: '0 0 0 4px rgba(0,229,176,0.07), 0 0 24px rgba(0,229,176,0.15)',
+                  filter: 'brightness(0.92) contrast(1.05) saturate(0.85)',
+                }}>
+                <img
+                  src="/ProfilePicture.jpg"
+                  alt="Jasper Van Zeir"
+                  className="w-full h-full object-cover object-[center_top]"
+                />
+              </div>
+            </div>
             <TypingTag />
             <GlitchName />
             <p className="font-sans text-muted mb-3 fade-in-up delay-2" style={{ fontSize: 'clamp(14px,1.5vw,18px)' }}>

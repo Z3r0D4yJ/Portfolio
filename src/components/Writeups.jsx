@@ -7,21 +7,24 @@ const categories = [
     title: 'CTF Writeups',
     count: '20+',
     desc: 'Detailed walkthroughs of challenges from HackTheBox, TryHackMe, and BugForge. Focused on web security, network exploitation, forensics, and more.',
-    tags: ['HackTheBox', 'TryHackMe', 'BugForge', 'Web', 'Network']
+    tags: ['HackTheBox', 'TryHackMe', 'BugForge', 'Web', 'Network'],
+    href: 'https://z3r0d4yj.gitbook.io/z3r0d4yj-docs/ctf-writeups',
   },
   {
     icon: GraduationCapIcon,
     title: 'School Notes',
     count: 'HOWEST',
     desc: 'Structured notes from my Applied Computer Science curriculum — networking, OS fundamentals, programming, databases, and security concepts.',
-    tags: ['Networking', 'Linux', 'Java', 'C#', 'Databases']
+    tags: ['Networking', 'Linux', 'Java', 'C#', 'Databases'],
+    href: 'https://z3r0d4yj.gitbook.io/z3r0d4yj-docs/school-notes',
   },
   {
     icon: FlaskIcon,
     title: 'Research & Labs',
     count: 'Ongoing',
     desc: 'Personal research, tool documentation, lab setups, and self-study notes on security topics. Eventually also bachelor thesis projects.',
-    tags: ['Security Labs', 'Tools', 'Self-Study', 'Thesis']
+    tags: ['Security Labs', 'Tools', 'Self-Study', 'Thesis'],
+    href: 'https://z3r0d4yj.gitbook.io/z3r0d4yj-docs/research-and-labs',
   },
 ]
 
@@ -71,7 +74,7 @@ export default function Writeups() {
             return (
               <a
                 key={c.title}
-                href="https://z3r0d4yj.gitbook.io/z3r0d4yj-docs"
+                href={c.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="card-hover bg-bg p-7 group block"
