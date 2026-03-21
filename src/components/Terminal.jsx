@@ -155,6 +155,7 @@ export default function Terminal() {
   const [cmdHistory, setCmdHistory] = useState([])
   const [histIdx, setHistIdx] = useState(-1)
   const [expanded, setExpanded] = useState(false)
+  const [visible, setVisible] = useState(false)
   const [animating, setAnimating] = useState(false)
   const scrollRef = useRef(null)
   const inputRef = useRef(null)
@@ -183,14 +184,18 @@ export default function Terminal() {
     return () => document.removeEventListener('keydown', handleKey)
   }, [expanded])
 
-  // Trigger opening animation after portal mounts
+  // Animate open: mount portal first, then trigger CSS transition
+  // Animate close: reverse CSS transition, then unmount portal
   useEffect(() => {
     if (expanded) {
+      setVisible(true)
       requestAnimationFrame(() => {
         requestAnimationFrame(() => setAnimating(true))
       })
     } else {
       setAnimating(false)
+      const timer = setTimeout(() => setVisible(false), 500)
+      return () => clearTimeout(timer)
     }
   }, [expanded])
 
@@ -255,14 +260,14 @@ export default function Terminal() {
       <div
         className="terminal-glow border border-border rounded-md overflow-hidden bg-surface font-mono text-xs cursor-text"
         onClick={() => inputRef.current?.focus({ preventScroll: true })}
-        style={{ visibility: expanded ? 'hidden' : 'visible' }}
+        style={{ visibility: visible ? 'hidden' : 'visible' }}
       >
         <TitleBar expanded={false} setExpanded={setExpanded} hasInteracted={hasInteracted} />
-        {!expanded && <TerminalContent {...sharedProps} expanded={false} />}
+        {!visible && <TerminalContent {...sharedProps} expanded={false} />}
       </div>
 
       {/* Expanded terminal — rendered via portal to escape overflow:hidden parents */}
-      {expanded && createPortal(
+      {visible && createPortal(
         <>
           {/* Backdrop */}
           <div
@@ -271,14 +276,14 @@ export default function Terminal() {
             onClick={() => setExpanded(false)}
           />
 
-          {/* Fullscreen terminal */}
+          {/* Expanded terminal */}
           <div
             className="fixed z-[9999] terminal-glow border border-border rounded-md overflow-hidden bg-surface font-mono text-sm cursor-text transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
             style={{
-              top: animating ? 24 : '30%',
-              left: animating ? 24 : '50%',
-              right: animating ? 24 : '50%',
-              bottom: animating ? 24 : '30%',
+              top: animating ? '5vh' : '35%',
+              left: animating ? '10vw' : '45%',
+              right: animating ? '10vw' : '45%',
+              bottom: animating ? '5vh' : '35%',
               opacity: animating ? 1 : 0,
             }}
             onClick={() => inputRef.current?.focus({ preventScroll: true })}
