@@ -39,11 +39,11 @@ export default function Writeups() {
           href="https://z3r0d4yj.gitbook.io/z3r0d4yj-docs"
           target="_blank"
           rel="noopener noreferrer"
-          className="reveal card-hover group flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border border-border bg-bg p-8 mb-10 no-underline"
+          className="reveal card-hover group flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border border-border bg-bg p-6 mb-10 no-underline"
         >
 <         div className="flex flex-col md:flex-row md:items-center gap-5">
-            <div className="w-14 h-14 border border-border bg-surface flex items-center justify-center flex-shrink-0">
-              <BookOpenIcon size={28} weight="duotone" className="text-accent" />
+            <div className="w-12 h-12 border border-border bg-surface2 rounded-sm flex items-center justify-center flex-shrink-0">
+              <BookOpenIcon size={24} weight="duotone" className="text-accent" />
             </div>
 
             <div>
@@ -61,7 +61,7 @@ export default function Writeups() {
             </div>
           </div>
 
-          <div className="flex-shrink-0 font-mono text-xs px-5 py-2.5 border border-accent/40 text-accent group-hover:bg-accent group-hover:text-bg transition-all duration-200 whitespace-nowrap">
+          <div className="flex-shrink-0 font-mono text-xs px-4 py-2 border border-accent/40 text-accent group-hover:bg-accent group-hover:text-bg transition-all duration-200 whitespace-nowrap">
             Visit Docs →
           </div>
         </a>
@@ -77,12 +77,12 @@ export default function Writeups() {
                 href={c.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="card-hover bg-bg p-7 group block"
+                className="card-hover bg-bg p-5 group block"
                 style={{ textDecoration: 'none', transitionDelay: `${i * 80}ms` }}
               >
                 <div className="flex items-start justify-between mb-4">
-                <div className="w-11 h-11 border border-border bg-surface rounded-sm flex items-center justify-center flex-shrink-0">
-                  <Icon size={22} weight="duotone" className="text-accent" />
+                <div className="w-10 h-10 border border-border bg-surface2 rounded-sm flex items-center justify-center flex-shrink-0">
+                  <Icon size={20} weight="duotone" className="text-accent" />
                 </div>
 
                   <span className="font-mono text-xs px-2 py-1 border border-accent/20 text-accent bg-accent/5">

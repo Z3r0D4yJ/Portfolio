@@ -83,8 +83,8 @@ function DevCard({ icon, name, desc, type }) {
 
   return (
     <div className="card-hover bg-bg p-5 flex gap-4 items-start">
-      <div className="w-11 h-11 border border-border bg-surface rounded-sm flex items-center justify-center flex-shrink-0">
-        <Icon size={22} weight="duotone" className="text-accent" />
+      <div className="w-10 h-10 border border-border bg-surface2 rounded-sm flex items-center justify-center flex-shrink-0">
+        <Icon size={20} weight="duotone" className="text-accent" />
       </div>
 
       <div>

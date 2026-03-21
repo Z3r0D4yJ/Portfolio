@@ -63,7 +63,7 @@ export default function Contact() {
         href={l.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="card-hover bg-surface p-4 flex items-center gap-4 group border border-border border-b-0 last:border-b rounded-none transition-all duration-200"
+        className="card-hover bg-surface p-5 flex items-center gap-4 group border border-border border-b-0 last:border-b rounded-none transition-all duration-200"
       >
         <span className="flex justify-center w-10 h-10 border border-border bg-surface2 rounded-sm items-center flex-shrink-0">
           <Icon

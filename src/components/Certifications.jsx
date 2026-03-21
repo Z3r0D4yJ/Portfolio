@@ -61,12 +61,12 @@ function CertCard({ icon: Icon, firm, name, issuer, year, status, delay = 0 }) {
       className="card-hover bg-surface p-5 flex gap-4 items-start reveal"
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <div className="w-11 h-11 border border-border bg-surface2 rounded-sm flex items-center justify-center flex-shrink-0">
-        <Icon size={22} weight="duotone" className={fs.icon} />
+      <div className="w-10 h-10 border border-border bg-surface2 rounded-sm flex items-center justify-center flex-shrink-0">
+        <Icon size={20} weight="duotone" className={fs.icon} />
       </div>
 
       <div className="flex-1 min-w-0">
-        <div className="flex items-center justify-between gap-2 mb-1">
+        <div className="flex flex-wrap items-center gap-2 mb-1">
           <span className="font-display text-bright tracking-wider">{name}</span>
           <span className={`${badge} ${fs.badge}`}>{firm}</span>
         </div>
