@@ -1,43 +1,16 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { GlitchLogo } from './GlitchName'
-import { SunIcon, MoonIcon } from "@phosphor-icons/react"
 
 export default function Nav({ activeSection }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [dark, setDark] = useState(true)
+  const sidebarRef = useRef(null)
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', fn, { passive: true })
     return () => window.removeEventListener('scroll', fn)
   }, [])
-
-  // Theme initialization
-  useEffect(() => {
-    const stored = localStorage.getItem("theme")
-    if (stored === "light") {
-      document.documentElement.classList.remove("dark")
-      setDark(false)
-    } else {
-      document.documentElement.classList.add("dark")
-      setDark(true)
-    }
-  }, [])
-
-  const toggleTheme = () => {
-    const isDark = document.documentElement.classList.contains("dark")
-
-    if (isDark) {
-      document.documentElement.classList.remove("dark")
-      localStorage.setItem("theme", "light")
-      setDark(false)
-    } else {
-      document.documentElement.classList.add("dark")
-      localStorage.setItem("theme", "dark")
-      setDark(true)
-    }
-  }
 
   // Lock body scroll when sidebar is open
   useEffect(() => {
@@ -47,6 +20,35 @@ export default function Nav({ activeSection }) {
       document.body.style.overflow = ''
     }
     return () => { document.body.style.overflow = '' }
+  }, [mobileOpen])
+
+  // Close sidebar on Escape and trap focus
+  useEffect(() => {
+    if (!mobileOpen) return
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setMobileOpen(false)
+        return
+      }
+
+      if (e.key === 'Tab' && sidebarRef.current) {
+        const focusable = sidebarRef.current.querySelectorAll('a, button')
+        const first = focusable[0]
+        const last = focusable[focusable.length - 1]
+
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault()
+          last.focus()
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault()
+          first.focus()
+        }
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
   }, [mobileOpen])
 
   const links = ['about', 'skills', 'projects', 'writeups', 'certifications', 'education', 'contact']
@@ -72,20 +74,6 @@ export default function Nav({ activeSection }) {
           </div>
 
           <div className="flex items-center gap-4">
-
-            {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="w-9 h-9 flex items-center justify-center border border-border bg-surface hover:border-accent/40 transition-colors"
-              aria-label="Toggle theme"
-            >
-              {dark ? (
-                <SunIcon size={18} weight="duotone" className="text-accent" />
-              ) : (
-                <MoonIcon size={18} weight="duotone" className="text-accent" />
-              )}
-            </button>
-
             {/* Hamburger button */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -109,6 +97,9 @@ export default function Nav({ activeSection }) {
 
       {/* Mobile sidebar */}
       <div
+        ref={sidebarRef}
+        role="dialog"
+        aria-label="Navigation menu"
         className={`fixed top-0 right-0 bottom-0 z-50 w-72 bg-surface border-l border-border transition-transform duration-300 ease-out md:hidden ${mobileOpen ? 'translate-x-0' : 'translate-x-full'}`}
       >
 

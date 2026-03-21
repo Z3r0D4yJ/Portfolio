@@ -87,8 +87,8 @@ export default function Certifications() {
         <SectionHeader num="// 05" title="CERTIFICATIONS" />
 
         <p className="font-mono text-xs text-dim leading-relaxed mb-8 max-w-2xl reveal">
-          Certifications and learning path completions earned through hands-on platforms,
-          alongside planned credentials to validate practical skills developed during my
+          Planned certifications and learning path completions from hands-on platforms,
+          targeted to validate the practical skills I'm developing during my
           cybersecurity studies at HOWEST.
         </p>
 
