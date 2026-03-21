@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { ArrowsOutIcon, ArrowsInIcon } from "@phosphor-icons/react"
 
 const COMMANDS = {
   help: () => [
@@ -88,12 +89,33 @@ export default function Terminal() {
   const [input, setInput] = useState('')
   const [cmdHistory, setCmdHistory] = useState([])
   const [histIdx, setHistIdx] = useState(-1)
+  const [expanded, setExpanded] = useState(false)
   const scrollRef = useRef(null)
   const inputRef = useRef(null)
 
   useEffect(() => {
     if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight
   }, [history])
+
+  // Lock body scroll when expanded
+  useEffect(() => {
+    if (expanded) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [expanded])
+
+  // Close on Escape
+  useEffect(() => {
+    if (!expanded) return
+    const handleKey = (e) => {
+      if (e.key === 'Escape') setExpanded(false)
+    }
+    document.addEventListener('keydown', handleKey)
+    return () => document.removeEventListener('keydown', handleKey)
+  }, [expanded])
 
   const prompt = (
     <span>
@@ -150,8 +172,18 @@ export default function Terminal() {
 
   return (
     <div className="hidden lg:block" style={{ width: 420, maxWidth: '100%' }}>
+      {/* Backdrop overlay */}
       <div
-        className="terminal-glow border border-border rounded-md overflow-hidden bg-surface font-mono text-xs cursor-text"
+        className={`fixed inset-0 z-[9998] bg-bg/80 backdrop-blur-sm transition-opacity duration-500 ${expanded ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        onClick={() => setExpanded(false)}
+      />
+
+      <div
+        className={`terminal-glow border border-border rounded-md overflow-hidden bg-surface font-mono text-xs cursor-text transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+          expanded
+            ? 'fixed inset-4 md:inset-8 lg:inset-16 z-[9999] text-sm'
+            : 'relative'
+        }`}
         onClick={() => inputRef.current?.focus({ preventScroll: true })}
       >
         {/* Title bar */}
@@ -160,11 +192,29 @@ export default function Terminal() {
           <div className="w-3 h-3 rounded-full bg-yellow-500 opacity-80" />
           <div className="w-3 h-3 rounded-full bg-green-500 opacity-80" />
           <span className="ml-2 text-dim text-xs tracking-wider flex-1">jasper@kali — bash</span>
-          <span className="text-dim/40 text-xs">try: help</span>
+          {!expanded && <span className="text-dim/40 text-xs mr-2">try: help</span>}
+          {expanded && <span className="text-dim/40 text-xs mr-2">ESC to close</span>}
+          <button
+            onClick={(e) => {
+              e.stopPropagation()
+              setExpanded(!expanded)
+            }}
+            className="w-6 h-6 flex items-center justify-center text-dim hover:text-accent transition-colors"
+            aria-label={expanded ? 'Collapse terminal' : 'Expand terminal'}
+          >
+            {expanded
+              ? <ArrowsInIcon size={14} weight="bold" />
+              : <ArrowsOutIcon size={14} weight="bold" />
+            }
+          </button>
         </div>
 
         {/* Output */}
-        <div ref={scrollRef} className="p-4 space-y-1 leading-relaxed overflow-y-auto overflow-x-hidden" style={{ height: 280 }}>
+        <div
+          ref={scrollRef}
+          className="p-4 space-y-1 leading-relaxed overflow-y-auto overflow-x-hidden transition-all duration-500"
+          style={{ height: expanded ? 'calc(100% - 44px)' : 280 }}
+        >
           {history.map((entry, i) => (
             <div key={i}>
               {entry.type === 'input' && (
@@ -198,9 +248,9 @@ export default function Terminal() {
       {/* Hint */}
       <div style={{
         transition: 'opacity 0.6s ease, transform 0.6s ease',
-        opacity: hasInteracted ? 0 : 1,
+        opacity: hasInteracted || expanded ? 0 : 1,
         pointerEvents: 'none',
-        transform: hasInteracted ? 'translateY(-4px)' : 'translateY(0)',
+        transform: hasInteracted || expanded ? 'translateY(-4px)' : 'translateY(0)',
       }}>
         <div className="flex items-center gap-2 mt-2 px-1">
           <span className="flex gap-[3px]">
