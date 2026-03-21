@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { GlitchLogo } from './GlitchName'
+import { Logo } from './GlitchName'
 
 export default function Nav({ activeSection }) {
   const [scrolled, setScrolled] = useState(false)
@@ -58,7 +58,7 @@ export default function Nav({ activeSection }) {
       <nav className={`fixed top-0 left-0 right-0 z-50 border-b transition-[background-color,backdrop-filter] duration-300 ${scrolled ? 'bg-bg/95 backdrop-blur-md border-border' : 'bg-transparent border-transparent'}`}>
         <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
 
-          <GlitchLogo />
+          <Logo />
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">
