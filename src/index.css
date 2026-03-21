@@ -27,16 +27,6 @@ body {
   background: #00e5b0;
 }
 
-/* ── Grid Background ── */
-.grid-bg {
-  background-image: linear-gradient(
-      rgba(0, 229, 176, 0.02) 1px,
-      transparent 1px
-    ),
-    linear-gradient(90deg, rgba(0, 229, 176, 0.02) 1px, transparent 1px);
-  background-size: 48px 48px;
-}
-
 /* ── Card Hover ── */
 .card-hover {
   transition: all 0.25s ease;
