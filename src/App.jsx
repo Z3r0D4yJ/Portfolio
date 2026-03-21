@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react'
 import { CaretUpIcon } from "@phosphor-icons/react"
-import ParticleField from './components/ParticleField'
-import MagneticCursor from './components/MagneticCursor'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -66,16 +64,14 @@ export default function App() {
   }, [])
 
   return (
-    <div className="relative scanlines noise font-sans text-muted">
+    <div className="relative font-sans text-muted">
       <a
         href="#home"
         className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[99999] focus:px-4 focus:py-2 focus:bg-accent focus:text-bg focus:font-mono focus:text-xs"
       >
         Skip to content
       </a>
-      <MagneticCursor />
       <ScrollProgress />
-      <ParticleField />
       <BackToTop />
       <Nav activeSection={activeSection} />
 
@@ -88,13 +84,12 @@ export default function App() {
       <Education />
       <Contact />
 
-      {/* Footer */}
       <footer className="border-t border-border py-6 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3">
           <span className="font-mono text-xs text-dim">
-            <span className="text-accent">jasper@vzeir</span>:~$ <span className="text-dim/60">echo "Authorized testing only."</span>
+            Jasper Van Zeir — Cybersecurity Portfolio
           </span>
-          <span className="font-mono text-xs text-dim">© {new Date().getFullYear()} Jasper Van Zeir — All rights reserved.</span>
+          <span className="font-mono text-xs text-dim">© {new Date().getFullYear()} All rights reserved.</span>
         </div>
       </footer>
     </div>
