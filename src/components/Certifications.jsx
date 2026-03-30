@@ -66,7 +66,7 @@ function CertCard({ icon: Icon, firm, name, issuer, year, status, delay = 0 }) {
       </div>
 
       <div className="flex-1 min-w-0">
-        <div className="flex flex-wrap items-center gap-2 mb-1">
+        <div className="flex flex-wrap justify-between items-center gap-2 mb-1">
           <span className="font-display text-bright tracking-wider">{name}</span>
           <span className={`${badge} ${fs.badge}`}>{firm}</span>
         </div>
