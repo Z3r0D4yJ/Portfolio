@@ -11,10 +11,10 @@ function StatCard({ num, label, delay = 0 }) {
 
 export default function About() {
   return (
-    <Section id="about" className="py-24 border-t border-border">
-      <div className="max-w-7xl mx-auto px-6">
+    <Section id="about" className="py-14 sm:py-24 border-t border-border">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <SectionHeader num="// 01" title="ABOUT ME" />
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           <div className="space-y-4 reveal">
             <p className="text-sm leading-relaxed">
               I'm <span className="text-bright font-medium">Jasper Van Zeir</span>, also known online as <span className="text-accent">Z3r0D4yJ</span>. From a young age I've been fascinated by computers, technology, and everything happening on the internet. Over time, this curiosity naturally evolved into a strong interest in cybersecurity and ethical hacking.

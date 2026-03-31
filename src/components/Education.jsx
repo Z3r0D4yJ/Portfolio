@@ -2,11 +2,11 @@ import { Section, SectionHeader } from './Section'
 
 function TimelineItem({ year, degree, school, desc, delay = 0 }) {
   return (
-    <div className="relative pl-10 mb-12 reveal" style={{ transitionDelay: `${delay}ms` }}>
-      <div className="absolute left-0 top-1.5 w-2.5 h-2.5 rounded-full bg-accent" style={{ boxShadow: '0 0 12px rgba(0,229,176,0.6)' }} />
-      <div className="absolute left-1 top-4 bottom-0 w-px bg-border -mb-12" />
+    <div className="relative pl-7 sm:pl-10 mb-10 sm:mb-12 reveal" style={{ transitionDelay: `${delay}ms` }}>
+      <div className="absolute left-0 top-1.5 w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-accent" style={{ boxShadow: '0 0 12px rgba(0,229,176,0.6)' }} />
+      <div className="absolute left-[3px] sm:left-1 top-4 bottom-0 w-px bg-border -mb-12" />
       <div className="font-mono text-xs text-accent tracking-widest mb-2">{year}</div>
-      <div className="font-display text-2xl text-bright tracking-wider mb-1">{degree}</div>
+      <div className="font-display text-xl sm:text-2xl text-bright tracking-wider mb-1">{degree}</div>
       <div className="font-mono text-xs text-dim mb-3">{school}</div>
       <p className="text-xs leading-relaxed text-dim max-w-lg">{desc}</p>
     </div>
@@ -15,10 +15,10 @@ function TimelineItem({ year, degree, school, desc, delay = 0 }) {
 
 export default function Education() {
   return (
-    <Section id="education" className="py-24 border-t border-border bg-surface">
-      <div className="max-w-7xl mx-auto px-6">
+    <Section id="education" className="py-14 sm:py-24 border-t border-border bg-surface">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <SectionHeader num="// 06" title="EDUCATION & EXPERIENCE" />
-        <div className="relative pl-6 border-l border-border">
+        <div className="relative pl-4 sm:pl-6 border-l border-border">
           <TimelineItem
             year="2026 — 2029"
             degree="Bachelor Cybersecurity"

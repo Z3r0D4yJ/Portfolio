@@ -34,12 +34,12 @@ const profileData = [
 
 export default function Contact() {
   return (
-    <Section id="contact" className="py-24 border-t border-border">
-      <div className="max-w-7xl mx-auto px-6">
+    <Section id="contact" className="py-14 sm:py-24 border-t border-border">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
         <SectionHeader num="// 07" title="GET IN TOUCH" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
 
           <div className="reveal">
 
@@ -63,7 +63,7 @@ export default function Contact() {
         href={l.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="card-hover bg-surface p-5 flex items-center gap-4 group border border-border border-b-0 last:border-b rounded-none transition-all duration-200"
+        className="card-hover bg-surface p-4 sm:p-5 flex items-center gap-3 sm:gap-4 group border border-border border-b-0 last:border-b rounded-none transition-all duration-200"
       >
         <span className="flex justify-center w-10 h-10 border border-border bg-surface2 rounded-sm items-center flex-shrink-0">
           <Icon
@@ -108,7 +108,7 @@ export default function Contact() {
               <div className="space-y-2">
                 {profileData.map(({ key, val }) => (
                   <div key={key} className="flex gap-3">
-                    <span className="text-dim w-24 flex-shrink-0">
+                    <span className="text-dim w-16 sm:w-24 flex-shrink-0">
                       {key}
                     </span>
 
@@ -123,7 +123,7 @@ export default function Contact() {
                 ))}
 
                 <div className="flex gap-3">
-                  <span className="text-dim w-24 flex-shrink-0">
+                  <span className="text-dim w-16 sm:w-24 flex-shrink-0">
                     goal
                   </span>
 

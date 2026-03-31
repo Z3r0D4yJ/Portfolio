@@ -84,7 +84,7 @@ export default function App() {
       <Education />
       <Contact />
 
-      <footer className="border-t border-border py-6 px-6">
+      <footer className="border-t border-border py-6 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3">
           <span className="font-mono text-xs text-dim">
             Jasper Van Zeir — Cybersecurity Portfolio

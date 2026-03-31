@@ -30,8 +30,8 @@ const categories = [
 
 export default function Writeups() {
   return (
-    <Section id="writeups" className="py-24 border-t border-border bg-surface">
-      <div className="max-w-7xl mx-auto px-6">
+    <Section id="writeups" className="py-14 sm:py-24 border-t border-border bg-surface">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <SectionHeader num="// 04" title="WRITEUPS & DOCS" />
 
         {/* Gitbook banner */}
@@ -39,9 +39,9 @@ export default function Writeups() {
           href="https://z3r0d4yj.gitbook.io/z3r0d4yj-docs"
           target="_blank"
           rel="noopener noreferrer"
-          className="reveal card-hover group flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border border-border bg-bg p-6 mb-10 no-underline"
+          className="reveal card-hover group flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6 border border-border bg-bg p-4 sm:p-6 mb-8 sm:mb-10 no-underline"
         >
-<         div className="flex flex-col md:flex-row md:items-center gap-5">
+          <div className="flex flex-col md:flex-row md:items-center gap-4 sm:gap-5">
             <div className="w-12 h-12 border border-border bg-surface2 rounded-sm flex items-center justify-center flex-shrink-0">
               <BookOpenIcon size={24} weight="duotone" className="text-accent" />
             </div>
@@ -51,7 +51,7 @@ export default function Writeups() {
                 z3r0d4yj-docs
               </div>
 
-              <div className="font-mono text-xs text-dim mb-2">
+              <div className="font-mono text-xs text-dim mb-2 break-all">
                 z3r0d4yj.gitbook.io/z3r0d4yj-docs
               </div>
 
@@ -67,7 +67,7 @@ export default function Writeups() {
         </a>
 
         {/* Category cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border border border-border reveal">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border reveal">
           {categories.map((c, i) => {
             const Icon = c.icon
 

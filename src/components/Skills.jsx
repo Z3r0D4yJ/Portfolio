@@ -112,12 +112,12 @@ export default function Skills() {
   }, [])
 
   return (
-    <Section id="skills" className="py-24 border-t border-border bg-surface">
-      <div className="max-w-7xl mx-auto px-6" ref={skillsRef}>
+    <Section id="skills" className="py-14 sm:py-24 border-t border-border bg-surface">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6" ref={skillsRef}>
 
         <SectionHeader num="// 02" title="TECHNICAL SKILLS" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
           <div>
             <div className="font-mono text-xs text-accent tracking-widest uppercase mb-8 pb-3 border-b border-border reveal">
               Development
@@ -138,7 +138,7 @@ export default function Skills() {
         </div>
 
         {/* Dev Background */}
-        <div className="mt-14 pt-10 border-t border-border reveal">
+        <div className="mt-10 sm:mt-14 pt-8 sm:pt-10 border-t border-border reveal">
           <div className="font-mono text-xs text-accent tracking-widest uppercase mb-2">
             Why Full Stack First
           </div>

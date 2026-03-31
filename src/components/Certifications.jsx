@@ -58,7 +58,7 @@ function CertCard({ icon: Icon, firm, name, issuer, year, status, delay = 0 }) {
 
   return (
     <div
-      className="card-hover bg-surface p-5 flex gap-4 items-start reveal"
+      className="card-hover bg-surface p-4 sm:p-5 flex gap-3 sm:gap-4 items-start reveal"
       style={{ transitionDelay: `${delay}ms` }}
     >
       <div className="w-10 h-10 border border-border bg-surface2 rounded-sm flex items-center justify-center flex-shrink-0">
@@ -67,7 +67,7 @@ function CertCard({ icon: Icon, firm, name, issuer, year, status, delay = 0 }) {
 
       <div className="flex-1 min-w-0">
         <div className="flex flex-wrap justify-between items-center gap-2 mb-1">
-          <span className="font-display text-bright tracking-wider">{name}</span>
+          <span className="font-display text-bright tracking-wider text-sm sm:text-base">{name}</span>
           <span className={`${badge} ${fs.badge}`}>{firm}</span>
         </div>
 
@@ -81,8 +81,8 @@ function CertCard({ icon: Icon, firm, name, issuer, year, status, delay = 0 }) {
 
 export default function Certifications() {
   return (
-    <Section id="certifications" className="py-24 border-t border-border">
-      <div className="max-w-7xl mx-auto px-6">
+    <Section id="certifications" className="py-14 sm:py-24 border-t border-border">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
         <SectionHeader num="// 05" title="CERTIFICATIONS" />
 

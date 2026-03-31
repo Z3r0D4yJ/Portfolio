@@ -19,9 +19,9 @@ export function Section({ id, children, className = '' }) {
 
 export function SectionHeader({ num, title }) {
   return (
-    <div className="flex items-center gap-4 mb-14 reveal">
+    <div className="flex items-center gap-3 sm:gap-4 mb-8 sm:mb-14 reveal">
       <span className="font-mono text-xs text-accent tracking-widest">{num}</span>
-      <h2 className="font-display text-4xl text-bright tracking-wider">
+      <h2 className="font-display text-2xl sm:text-4xl text-bright tracking-wider">
         {title}
       </h2>
       <div className="flex-1 h-px bg-border max-w-xs" />
