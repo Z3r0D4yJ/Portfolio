@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
+import { createPortal } from 'react-dom'
+import { ArrowsOutIcon, ArrowsInIcon } from "@phosphor-icons/react"
 
 const COMMANDS = {
   help: () => [
@@ -78,6 +80,70 @@ const colorMap = {
   bright: 'text-bright',
 }
 
+function TerminalContent({ history, input, prompt, colorMap, scrollRef, inputRef, handleKey, setInput, expanded }) {
+  return (
+    <div
+      ref={scrollRef}
+      className="p-4 space-y-1 leading-relaxed overflow-y-auto overflow-x-hidden"
+      style={{ height: expanded ? 'calc(100% - 44px)' : 280 }}
+    >
+      {history.map((entry, i) => (
+        <div key={i}>
+          {entry.type === 'input' && (
+            <div className="break-all">{prompt}<span className="text-bright">{entry.cmd}</span></div>
+          )}
+          {entry.type === 'output' && entry.lines.map((l, j) => (
+            <div key={j} className={colorMap[l.t] || 'text-muted'} style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-all' }}>{l.v}</div>
+          ))}
+        </div>
+      ))}
+      <div className="flex items-start">
+        {prompt}
+        <span className="relative break-all">
+          <span className="text-bright">{input}</span>
+          <span className="cursor-blink" />
+        </span>
+        <input
+          ref={inputRef}
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={handleKey}
+          className="fixed top-0 left-0 w-px h-px opacity-0 pointer-events-none"
+          autoComplete="off"
+          spellCheck="false"
+          aria-label="terminal input"
+        />
+      </div>
+    </div>
+  )
+}
+
+function TitleBar({ expanded, setExpanded, hasInteracted }) {
+  return (
+    <div className="flex items-center gap-2 px-4 py-3 bg-surface2 border-b border-border select-none">
+      <div className="w-3 h-3 rounded-full bg-warn opacity-80" />
+      <div className="w-3 h-3 rounded-full bg-yellow-500 opacity-80" />
+      <div className="w-3 h-3 rounded-full bg-green-500 opacity-80" />
+      <span className="ml-2 text-dim text-xs tracking-wider flex-1">jasper@kali — bash</span>
+      {!expanded && <span className="text-dim/40 text-xs mr-2">try: help</span>}
+      {expanded && <span className="text-dim/40 text-xs mr-2">ESC to close</span>}
+      <button
+        onClick={(e) => {
+          e.stopPropagation()
+          setExpanded(!expanded)
+        }}
+        className="w-6 h-6 flex items-center justify-center text-dim hover:text-accent transition-colors"
+        aria-label={expanded ? 'Collapse terminal' : 'Expand terminal'}
+      >
+        {expanded
+          ? <ArrowsInIcon size={14} weight="bold" />
+          : <ArrowsOutIcon size={14} weight="bold" />
+        }
+      </button>
+    </div>
+  )
+}
+
 export default function Terminal() {
   const [history, setHistory] = useState([
     { type: 'output', lines: [
@@ -88,12 +154,50 @@ export default function Terminal() {
   const [input, setInput] = useState('')
   const [cmdHistory, setCmdHistory] = useState([])
   const [histIdx, setHistIdx] = useState(-1)
+  const [expanded, setExpanded] = useState(false)
+  const [visible, setVisible] = useState(false)
+  const [animating, setAnimating] = useState(false)
   const scrollRef = useRef(null)
   const inputRef = useRef(null)
 
   useEffect(() => {
     if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight
   }, [history])
+
+  // Lock body scroll when expanded
+  useEffect(() => {
+    if (expanded) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [expanded])
+
+  // Close on Escape
+  useEffect(() => {
+    if (!expanded) return
+    const handleKey = (e) => {
+      if (e.key === 'Escape') setExpanded(false)
+    }
+    document.addEventListener('keydown', handleKey)
+    return () => document.removeEventListener('keydown', handleKey)
+  }, [expanded])
+
+  // Animate open: mount portal first, then trigger CSS transition
+  // Animate close: reverse CSS transition, then unmount portal
+  useEffect(() => {
+    if (expanded) {
+      setVisible(true)
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => setAnimating(true))
+      })
+    } else {
+      setAnimating(false)
+      const timer = setTimeout(() => setVisible(false), 500)
+      return () => clearTimeout(timer)
+    }
+  }, [expanded])
 
   const prompt = (
     <span>
@@ -148,59 +252,55 @@ export default function Terminal() {
 
   const hasInteracted = cmdHistory.length > 0
 
+  const sharedProps = { history, input, prompt, colorMap, scrollRef, inputRef, handleKey, setInput }
+
   return (
     <div className="hidden lg:block" style={{ width: 420, maxWidth: '100%' }}>
+      {/* Inline (collapsed) terminal */}
       <div
         className="terminal-glow border border-border rounded-md overflow-hidden bg-surface font-mono text-xs cursor-text"
         onClick={() => inputRef.current?.focus({ preventScroll: true })}
+        style={{ visibility: visible ? 'hidden' : 'visible' }}
       >
-        {/* Title bar */}
-        <div className="flex items-center gap-2 px-4 py-3 bg-surface2 border-b border-border select-none">
-          <div className="w-3 h-3 rounded-full bg-warn opacity-80" />
-          <div className="w-3 h-3 rounded-full bg-yellow-500 opacity-80" />
-          <div className="w-3 h-3 rounded-full bg-green-500 opacity-80" />
-          <span className="ml-2 text-dim text-xs tracking-wider flex-1">jasper@kali — bash</span>
-          <span className="text-dim/40 text-xs">try: help</span>
-        </div>
-
-        {/* Output */}
-        <div ref={scrollRef} className="p-4 space-y-1 leading-relaxed overflow-y-auto overflow-x-hidden" style={{ height: 280 }}>
-          {history.map((entry, i) => (
-            <div key={i}>
-              {entry.type === 'input' && (
-                <div className="break-all">{prompt}<span className="text-bright">{entry.cmd}</span></div>
-              )}
-              {entry.type === 'output' && entry.lines.map((l, j) => (
-                <div key={j} className={colorMap[l.t] || 'text-muted'} style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-all' }}>{l.v}</div>
-              ))}
-            </div>
-          ))}
-          <div className="flex items-start">
-            {prompt}
-            <span className="relative break-all">
-              <span className="text-bright">{input}</span>
-              <span className="cursor-blink" />
-            </span>
-            <input
-              ref={inputRef}
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={handleKey}
-              className="fixed top-0 left-0 w-px h-px opacity-0 pointer-events-none"
-              autoComplete="off"
-              spellCheck="false"
-              aria-label="terminal input"
-            />
-          </div>
-        </div>
+        <TitleBar expanded={false} setExpanded={setExpanded} hasInteracted={hasInteracted} />
+        {!visible && <TerminalContent {...sharedProps} expanded={false} />}
       </div>
+
+      {/* Expanded terminal — rendered via portal to escape overflow:hidden parents */}
+      {visible && createPortal(
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 z-[9998] bg-bg/80 backdrop-blur-sm transition-opacity duration-500"
+            style={{ opacity: animating ? 1 : 0 }}
+            onClick={() => setExpanded(false)}
+          />
+
+          {/* Expanded terminal */}
+          <div
+            className="fixed z-[9999] terminal-glow border border-border rounded-md overflow-hidden bg-surface font-mono text-sm cursor-text transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+            style={{
+              top: animating ? '5vh' : '35%',
+              left: animating ? '10vw' : '45%',
+              right: animating ? '10vw' : '45%',
+              bottom: animating ? '5vh' : '35%',
+              opacity: animating ? 1 : 0,
+            }}
+            onClick={() => inputRef.current?.focus({ preventScroll: true })}
+          >
+            <TitleBar expanded={true} setExpanded={setExpanded} hasInteracted={hasInteracted} />
+            <TerminalContent {...sharedProps} expanded={true} />
+          </div>
+        </>,
+        document.body
+      )}
 
       {/* Hint */}
       <div style={{
         transition: 'opacity 0.6s ease, transform 0.6s ease',
-        opacity: hasInteracted ? 0 : 1,
+        opacity: hasInteracted || expanded ? 0 : 1,
         pointerEvents: 'none',
-        transform: hasInteracted ? 'translateY(-4px)' : 'translateY(0)',
+        transform: hasInteracted || expanded ? 'translateY(-4px)' : 'translateY(0)',
       }}>
         <div className="flex items-center gap-2 mt-2 px-1">
           <span className="flex gap-[3px]">

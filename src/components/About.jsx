@@ -2,8 +2,8 @@ import { Section, SectionHeader } from './Section'
 
 function StatCard({ num, label, delay = 0 }) {
   return (
-    <div className="card-hover bg-surface p-6 reveal" style={{ transitionDelay: `${delay}ms` }}>
-      <div className="font-display text-5xl text-accent glow-accent mb-2">{num}</div>
+    <div className="card-hover bg-surface p-5 reveal" style={{ transitionDelay: `${delay}ms` }}>
+      <div className="font-display text-4xl text-accent mb-2">{num}</div>
       <div className="font-mono text-xs text-dim tracking-widest uppercase">{label}</div>
     </div>
   )
