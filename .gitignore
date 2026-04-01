@@ -1,2 +1,15 @@
+# dependencies
 node_modules/
-dist/
+
+# next.js
+.next/
+out/
+
+# env files
+.env
+.env.local
+.env.*.local
+
+# misc
+.DS_Store
+*.pem
