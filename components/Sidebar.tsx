@@ -5,7 +5,7 @@ import { SOCIALS } from '@/data/portfolio'
 import type { SocialLink } from '@/data/portfolio'
 
 function SocialIcon({ type }: { type: SocialLink['type'] }) {
-  const props = { size: 18, weight: 'duotone' as const }
+  const props = { size: 24, weight: 'duotone' as const }
   switch (type) {
     case 'github':   return <GithubLogo {...props} />
     case 'linkedin': return <LinkedinLogo {...props} />
@@ -61,7 +61,7 @@ export function Sidebar() {
       </div>
 
       {/* Socials */}
-      <div className="flex gap-4 items-center mt-auto md:mt-16">
+      <div className="flex gap-4 items-center mt-auto md:mt-40">
         {SOCIALS.map((social) => (
           <a
             key={social.title}
