@@ -9,8 +9,8 @@
  *
  * Usage — hook (bring your own element):
  *   import { useGradientCursor } from '@/lib/gradient-cursor'
- *   const { background } = useGradientCursor({ color: '#00ff88' })
- *   <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', background }} />
+ *   const ref = useGradientCursor({ color: '#00ff88' })
+ *   <div ref={ref} style={{ position: 'fixed', inset: 0, pointerEvents: 'none' }} />
  */
 export { GradientCursor } from './GradientCursor'
 export { useGradientCursor } from './use-gradient-cursor'

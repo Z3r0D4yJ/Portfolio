@@ -34,7 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${bebasNeue.variable} ${dmSans.variable} ${jetbrainsMono.variable}`}
     >
       <body className="bg-bg text-text font-body text-[15px] leading-[1.7] overflow-x-hidden">
-        <GradientCursor color="#00ff88" size={700} opacity={0.07} spread={75} zIndex={0} />
+        <GradientCursor color="#00ff88" size={500} opacity={0.08} spread={100} zIndex={0} />
         {children}
       </body>
     </html>

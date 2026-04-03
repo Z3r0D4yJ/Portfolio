@@ -26,6 +26,7 @@ export interface ExperienceEntry {
   org: string
   desc: string
   tags: string[]
+  href?: string
 }
 
 export const EXPERIENCE: ExperienceEntry[] = [
@@ -35,6 +36,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
     org: 'HOWEST — Upcoming',
     desc: 'Dedicated cybersecurity degree focused on offensive security, ethical hacking, digital forensics, and secure software development. The next step after building a solid full stack foundation.',
     tags: ['Pentesting', 'Red Team', 'Forensics', 'Offensive Security'],
+    href: 'https://www.howest.be/en/programmes/bachelor/cybersecurity',
   },
   {
     date: 'Aug 2025 — Present',
@@ -42,6 +44,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
     org: 'Belgian Armed Forces',
     desc: 'Active-duty Sergeant within IT at Belgian Defence. Responsible for infrastructure support, system administration, and internal tooling. Gaining hands-on experience in discipline, responsibility, and professional operations.',
     tags: ['Infrastructure', 'Sysadmin', 'Networking'],
+    href: 'https://www.mil.be',
   },
   {
     date: '2024 — Present',
@@ -49,6 +52,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
     org: 'HackTheBox · TryHackMe · BugForge',
     desc: 'Actively building cybersecurity knowledge through 50+ CTF challenges and hands-on security labs. Documenting everything in 20+ writeups on GitBook. Focused on web exploitation, network security, and offensive tooling.',
     tags: ['Web Security', 'CTF', 'HackTheBox', 'TryHackMe', 'Python'],
+    href: 'https://z3r0d4yj.gitbook.io/z3r0d4yj-docs',
   },
   {
     date: '2023 — 2026',
@@ -56,6 +60,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
     org: 'HOGENT — Full Stack Development',
     desc: 'Full Stack Development track covering Java, C#, JavaScript, TypeScript, React, and MySQL. Deliberately chosen to understand how modern applications are built before specialising in how they break.',
     tags: ['Java', 'C#', 'React', 'TypeScript', 'MySQL', 'Docker'],
+    href: 'https://www.hogent.be',
   },
 ]
 
@@ -73,27 +78,19 @@ export const CERTIFICATIONS: Certification[] = [
     name: 'Pre-Security',
     date: '2024',
     inProgress: false,
-  },
-  {
-    issuer: 'TryHackMe',
-    name: 'SOC Level 1',
-    date: '2024',
-    inProgress: false,
-  },
-  {
-    issuer: 'TryHackMe',
-    name: 'Jr Penetration Tester',
-    inProgress: true,
+    href: 'https://tryhackme.com/path/outline/presecurity',
   },
   {
     issuer: 'Hack The Box',
     name: 'HTB Certified Penetration Testing Specialist (CPTS)',
     inProgress: true,
+    href: 'https://academy.hackthebox.com/preview/certifications/htb-certified-penetration-testing-specialist',
   },
   {
     issuer: 'Cisco',
     name: 'Cisco Networking Academy — Cybersecurity Essentials',
     inProgress: true,
+    href: 'https://www.netacad.com/courses/cybersecurity-essentials',
   },
 ]
 
@@ -122,6 +119,7 @@ export const PROJECTS: Project[] = [
     name: 'Cybersecurity Portfolio',
     desc: 'This site. Next.js 15, Tailwind CSS, gradient cursor library, dark design system. Active development.',
     tags: ['Next.js 15', 'Tailwind CSS', 'TypeScript'],
+    href: 'https://github.com/jasper-vzeir',
     thumbnail: '/projects/portfolio.png',
   },
 ]

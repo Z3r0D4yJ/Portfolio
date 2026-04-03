@@ -1,14 +1,10 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 export interface GradientCursorOptions {
-  /** Hex color string, e.g. "#00ff88" */
   color?: string
-  /** Radial gradient radius in px (default: 700) */
   size?: number
-  /** Center opacity (default: 0.07) */
   opacity?: number
-  /** Spread stop as percentage (default: 75) */
   spread?: number
 }
 
@@ -24,34 +20,52 @@ function hexToRgb(hex: string): [number, number, number] {
   ]
 }
 
-/**
- * Tracks the cursor position and returns a CSS `background` value for a
- * radial gradient that follows the mouse. Attach the returned style to any
- * `position: fixed; inset: 0` element to get a full-viewport cursor glow.
- *
- * @example
- * const { background } = useGradientCursor({ color: '#00ff88', size: 700 })
- */
 export function useGradientCursor({
   color = '#00ff88',
-  size = 700,
-  opacity = 0.07,
-  spread = 75,
+  size = 500,
+  opacity = 0.08,
+  spread = 100,
 }: GradientCursorOptions = {}) {
-  const [background, setBackground] = useState<string>('transparent')
+  const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const [r, g, b] = hexToRgb(color)
+    const el = ref.current
+    if (!el) return
+
+    // Start off-screen so there's no flash in the top-left corner on load
+    let x = -9999
+    let y = -9999
+
+    function render() {
+      if (!el) return
+      el.style.background = `radial-gradient(${size}px at ${x}px ${y}px, rgba(${r},${g},${b},${opacity}), transparent ${spread}%)`
+    }
 
     function onMouseMove(e: MouseEvent) {
-      setBackground(
-        `radial-gradient(${size}px at ${e.clientX}px ${e.clientY}px, rgba(${r}, ${g}, ${b}, ${opacity}), transparent ${spread}%)`,
-      )
+      x = e.clientX
+      y = e.clientY
+      render()
+    }
+
+    function onTouch(e: TouchEvent) {
+      const t = e.touches[0]
+      if (!t) return
+      x = t.clientX
+      y = t.clientY
+      render()
     }
 
     window.addEventListener('mousemove', onMouseMove)
-    return () => window.removeEventListener('mousemove', onMouseMove)
+    window.addEventListener('touchstart', onTouch, { passive: true })
+    window.addEventListener('touchmove', onTouch, { passive: true })
+
+    return () => {
+      window.removeEventListener('mousemove', onMouseMove)
+      window.removeEventListener('touchstart', onTouch)
+      window.removeEventListener('touchmove', onTouch)
+    }
   }, [color, size, opacity, spread])
 
-  return { background }
+  return ref
 }

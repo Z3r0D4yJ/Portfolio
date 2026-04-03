@@ -1,8 +1,21 @@
-import { ArrowUpRight, BookOpen } from '@phosphor-icons/react/dist/ssr'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 import { FadeIn } from '@/components/ui/FadeIn'
+import { LinkArrow } from '@/components/ui/LinkArrow'
 
-const GITBOOK_URL = 'https://z3r0d4yj.gitbook.io/z3r0d4yj-docs'
+const ENTRIES = [
+  {
+    platform: 'GitBook',
+    title: 'z3r0d4yj · Writeups & Docs',
+    meta: 'z3r0d4yj.gitbook.io · CTF writeups, exploit breakdowns, security research',
+    href: 'https://z3r0d4yj.gitbook.io/z3r0d4yj-docs',
+  },
+  {
+    platform: 'Medium',
+    title: 'z3r0d4yj · Blog',
+    meta: 'medium.com · Articles, security write-ups and thoughts',
+    href: 'https://medium.com/',
+  },
+]
 
 export function CTF() {
   return (
@@ -10,29 +23,34 @@ export function CTF() {
       <FadeIn>
         <SectionLabel>Writeups & Blog</SectionLabel>
       </FadeIn>
-      <FadeIn>
-        <a
-          href={GITBOOK_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group flex items-center justify-between gap-6 bg-surface border border-border px-7 py-6 hover:border-[rgba(0,255,136,0.3)] hover:bg-[rgba(0,255,136,0.03)] transition-[border-color,background] duration-200 no-underline text-inherit"
-        >
-          <div className="flex items-center gap-5">
-            <BookOpen size={32} weight="duotone" className="text-accent opacity-60 shrink-0" />
-            <div>
-              <div className="text-[15px] font-semibold text-text mb-1 group-hover:text-accent transition-colors duration-200">
-                z3r0d4yj · GitBook
+
+      <div className="flex flex-col gap-[2px]">
+        {ENTRIES.map((entry) => (
+          <FadeIn key={entry.platform}>
+            <a
+              href={entry.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block no-underline text-inherit"
+            >
+              <div className="bg-surface border border-border px-[22px] py-[18px] flex items-center justify-between gap-4 hover:border-[rgba(0,255,136,0.3)] hover:bg-[rgba(0,255,136,0.03)] active:bg-[rgba(0,255,136,0.06)] transition-[border-color,background] duration-200">
+                <div>
+                  <div className="font-mono text-[10px] tracking-[2px] uppercase mb-[6px] text-accent">
+                    {entry.platform}
+                  </div>
+                  <div className="text-[14px] font-medium text-text group-hover:text-accent transition-colors duration-200 flex items-center gap-1.5">
+                    {entry.title}
+                    <LinkArrow size={13} />
+                  </div>
+                  <div className="font-mono text-[11px] text-muted mt-1 tracking-[0.5px]">
+                    {entry.meta}
+                  </div>
+                </div>
               </div>
-              <p className="font-mono text-[12px] text-muted2 leading-[1.6]">
-                CTF writeups, exploit breakdowns, and security research — all documented at z3r0d4yj.gitbook.io
-              </p>
-            </div>
-          </div>
-          <span className="text-muted group-hover:text-accent transition-colors duration-200 shrink-0">
-            <ArrowUpRight size={18} weight="duotone" />
-          </span>
-        </a>
-      </FadeIn>
+            </a>
+          </FadeIn>
+        ))}
+      </div>
     </section>
   )
 }

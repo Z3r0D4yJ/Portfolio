@@ -1,5 +1,6 @@
 import { Sidebar } from '@/components/Sidebar'
 import { BackToTop } from '@/components/ui/BackToTop'
+import { CVButton } from '@/components/ui/CVButton'
 import { About } from '@/components/sections/About'
 import { Experience } from '@/components/sections/Experience'
 import { Certifications } from '@/components/sections/Certifications'
@@ -20,6 +21,7 @@ export default function Home() {
         </main>
       </div>
       <BackToTop />
+      <CVButton />
     </>
   )
 }
