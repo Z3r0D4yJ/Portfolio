@@ -22,7 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Jasper — Cybersecurity & Red Team',
+  title: 'Portfolio Jasper Van Zeir',
   description:
     'Cybersecurity student, active-duty Sergeant in the Belgian Armed Forces IT division, and red team operator.',
 }

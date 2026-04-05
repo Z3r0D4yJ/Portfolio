@@ -26,9 +26,9 @@ export function Certifications() {
                 <div className="font-mono text-[10px] tracking-[2px] uppercase mb-[6px]" style={{ color: accentColor }}>
                   {cert.issuer}
                 </div>
-                <div className="text-[14px] font-medium text-text group-hover:text-accent transition-colors duration-200 flex items-center gap-1.5">
+                <div className="text-[14px] font-medium text-text group-hover:text-accent transition-colors duration-200">
                   {cert.name}
-                  {cert.href && <LinkArrow size={13} />}
+                  {cert.href && <span className="inline-block ml-1 align-middle"><LinkArrow size={13} /></span>}
                 </div>
                 {cert.date && (
                   <div className="font-mono text-[11px] text-muted mt-1 tracking-[0.5px]">{cert.date}</div>
