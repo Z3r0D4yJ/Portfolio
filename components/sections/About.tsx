@@ -15,7 +15,7 @@ export function About() {
           <strong className="text-text font-medium">Belgian Defence Cyber Command</strong> as a red team operator.
         </p>
         <p className="text-muted2 text-[15px] leading-[1.8] mb-7">
-          I deliberately started with full stack development — understanding how systems are{' '}
+          I deliberately started with full stack development - understanding how systems are{' '}
           <em className="not-italic text-text">built</em> is what makes understanding how they{' '}
           <em className="not-italic text-text">break</em> meaningful. I apply that in practice through{' '}
           <a
@@ -26,7 +26,7 @@ export function About() {
           >
             CTF competitions
           </a>
-          {' '}(50+ challenges, 20+ writeups) and hands-on security research — currently focusing on web exploitation,
+          {' '}(50+ challenges, 20+ writeups) and hands-on security research - currently focusing on web exploitation,
           network security, and offensive tooling.
         </p>
         <p className="text-muted2 text-[15px] leading-[1.8] mb-7">

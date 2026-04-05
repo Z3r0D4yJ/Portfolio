@@ -10,7 +10,7 @@ interface FadeInProps {
 export function FadeIn({ children, className, as: Tag = 'div' }: FadeInProps) {
   const ref = useScrollFade<HTMLDivElement>()
   return (
-    // @ts-expect-error — dynamic tag ref typing
+    // @ts-expect-error - dynamic tag ref typing
     <Tag ref={ref} className={className}>
       {children}
     </Tag>

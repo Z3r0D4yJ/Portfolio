@@ -31,15 +31,15 @@ export interface ExperienceEntry {
 
 export const EXPERIENCE: ExperienceEntry[] = [
   {
-    date: '2026 — 2029',
+    date: '2026 - 2029',
     title: 'Bachelor Cybersecurity',
-    org: 'HOWEST — Upcoming',
+    org: 'HOWEST - Upcoming',
     desc: 'Dedicated cybersecurity degree focused on offensive security, ethical hacking, digital forensics, and secure software development. The next step after building a solid full stack foundation.',
     tags: ['Pentesting', 'Red Team', 'Forensics', 'Offensive Security'],
     href: 'https://www.howest.be/en/programmes/bachelor/cybersecurity',
   },
   {
-    date: 'Aug 2025 — Present',
+    date: 'Aug 2025 - Present',
     title: 'Sergeant, IT Division',
     org: 'Belgian Armed Forces',
     desc: 'Active-duty Sergeant within IT at Belgian Defence. Responsible for infrastructure support, system administration, and internal tooling. Gaining hands-on experience in discipline, responsibility, and professional operations.',
@@ -47,7 +47,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
     href: 'https://www.mil.be',
   },
   {
-    date: '2024 — Present',
+    date: '2024 - Present',
     title: 'Self-Study & CTF Competitions',
     org: 'HackTheBox · TryHackMe · BugForge',
     desc: 'Actively building cybersecurity knowledge through 50+ CTF challenges and hands-on security labs. Documenting everything in 20+ writeups on GitBook. Focused on web exploitation, network security, and offensive tooling.',
@@ -55,9 +55,9 @@ export const EXPERIENCE: ExperienceEntry[] = [
     href: 'https://z3r0d4yj.gitbook.io/z3r0d4yj-docs',
   },
   {
-    date: '2023 — 2026',
+    date: '2023 - 2026',
     title: 'Bachelor Applied Computer Science',
-    org: 'HOGENT — Full Stack Development',
+    org: 'HOGENT - Full Stack Development',
     desc: 'Full Stack Development track covering Java, C#, JavaScript, TypeScript, React, and MySQL. Deliberately chosen to understand how modern applications are built before specialising in how they break.',
     tags: ['Java', 'C#', 'React', 'TypeScript', 'MySQL', 'Docker'],
     href: 'https://www.hogent.be',
@@ -82,13 +82,13 @@ export const CERTIFICATIONS: Certification[] = [
   },
   {
     issuer: 'Hack The Box',
-    name: 'HTB Certified Penetration Testing Specialist (CPTS)',
+    name: 'Certified Penetration Testing Specialist (CPTS)',
     inProgress: true,
     href: 'https://academy.hackthebox.com/preview/certifications/htb-certified-penetration-testing-specialist',
   },
   {
     issuer: 'Cisco',
-    name: 'Cisco Networking Academy — Cybersecurity Essentials',
+    name: 'Cybersecurity Essentials',
     inProgress: true,
     href: 'https://www.netacad.com/courses/cybersecurity-essentials',
   },
@@ -136,7 +136,7 @@ export interface CTFEntry {
 
 export const CTF_ENTRIES: CTFEntry[] = [
   {
-    title: 'Galaxy Dash — SQL Injection',
+    title: 'Galaxy Dash - SQL Injection',
     meta: 'Bugforge · Web Exploitation · SQLite',
     badge: 'medium',
     badgeLabel: 'Medium',

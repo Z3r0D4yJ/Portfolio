@@ -67,7 +67,7 @@ export function Sidebar() {
           I break things intentionally, defend them professionally, and document everything.
         </p>
 
-        {/* Nav — desktop only */}
+        {/* Nav - desktop only */}
         <div className="hidden md:block">
           <Nav />
         </div>
