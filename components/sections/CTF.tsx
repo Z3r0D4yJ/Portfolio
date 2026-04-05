@@ -4,10 +4,10 @@ import { LinkArrow } from '@/components/ui/LinkArrow'
 
 const ENTRIES = [
   {
-    platform: 'GitBook',
+    platform: 'Docs',
     title: 'z3r0d4yj · Writeups & Docs',
-    meta: 'z3r0d4yj.gitbook.io · CTF writeups, exploit breakdowns, security research',
-    href: 'https://z3r0d4yj.gitbook.io/z3r0d4yj-docs',
+    meta: 'docs.jaspervanzeir.com · CTF writeups, exploit breakdowns, security research',
+    href: 'https://docs.jaspervanzeir.com',
   },
   {
     platform: 'Medium',

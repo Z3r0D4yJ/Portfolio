@@ -19,7 +19,7 @@ export function About() {
           <em className="not-italic text-text">built</em> is what makes understanding how they{' '}
           <em className="not-italic text-text">break</em> meaningful. I apply that in practice through{' '}
           <a
-            href="https://z3r0d4yj.gitbook.io/z3r0d4yj-docs"
+            href="https://docs.jaspervanzeir.com"
             target="_blank"
             rel="noopener noreferrer"
             className="text-accent no-underline border-b border-[rgba(0,255,136,0.2)] hover:border-accent transition-[border-color] duration-200"

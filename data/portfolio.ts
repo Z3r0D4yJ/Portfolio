@@ -9,14 +9,14 @@ export const NAV_ITEMS = [
 export interface SocialLink {
   href: string
   title: string
-  type: 'github' | 'linkedin' | 'email' | 'gitbook' | 'cv'
+  type: 'github' | 'linkedin' | 'email' | 'docs' | 'cv'
 }
 
 export const SOCIALS: SocialLink[] = [
   { href: 'https://github.com/jasper-vzeir', title: 'GitHub', type: 'github' },
   { href: 'https://linkedin.com/in/jaspervanzeir', title: 'LinkedIn', type: 'linkedin' },
   { href: 'mailto:jaspervanzeir1@gmail.com', title: 'Email', type: 'email' },
-  { href: 'https://z3r0d4yj.gitbook.io/z3r0d4yj-docs', title: 'GitBook', type: 'gitbook' },
+  { href: 'https://docs.jaspervanzeir.com', title: 'Docs', type: 'docs' },
   { href: '#', title: 'Download CV', type: 'cv' },
 ]
 
@@ -52,7 +52,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
     org: 'HackTheBox · TryHackMe · BugForge',
     desc: 'Actively building cybersecurity knowledge through 50+ CTF challenges and hands-on security labs. Documenting everything in 20+ writeups on GitBook. Focused on web exploitation, network security, and offensive tooling.',
     tags: ['Web Security', 'CTF', 'HackTheBox', 'TryHackMe', 'Python'],
-    href: 'https://z3r0d4yj.gitbook.io/z3r0d4yj-docs',
+    href: 'https://docs.jaspervanzeir.com',
   },
   {
     date: '2023 - 2026',
@@ -140,6 +140,6 @@ export const CTF_ENTRIES: CTFEntry[] = [
     meta: 'Bugforge · Web Exploitation · SQLite',
     badge: 'medium',
     badgeLabel: 'Medium',
-    href: 'https://z3r0d4yj.gitbook.io/z3r0d4yj-docs',
+    href: 'https://docs.jaspervanzeir.com',
   },
 ]
