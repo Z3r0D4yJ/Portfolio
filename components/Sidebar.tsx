@@ -24,7 +24,7 @@ export function Sidebar() {
     ">
       <div>
         <div className="animate-fade-up font-display text-[40px] md:text-[52px] tracking-[2px] leading-none text-white mb-2">
-          1NSIDAE
+          1NSIDIAE
         </div>
         <div className="animate-fade-up-d1 font-mono text-[12px] md:text-[13px] text-accent tracking-[0.5px] mb-4">
           Cybersecurity · Full Stack · CTF

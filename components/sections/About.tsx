@@ -7,7 +7,7 @@ export function About() {
       <FadeIn>
         <SectionLabel>About</SectionLabel>
         <p className="text-muted2 text-[15px] leading-[1.8] mb-7">
-          I&apos;m <strong className="text-text font-medium">1nsidae</strong>, a Full Stack Development student at{' '}
+          I&apos;m <strong className="text-text font-medium">1nsidiae</strong>, a Full Stack Development student at{' '}
           <strong className="text-text font-medium">HOGENT</strong>. In 2026 I&apos;m transitioning to{' '}
           <strong className="text-text font-medium">HOWEST</strong> for a dedicated Cybersecurity bachelor,
           focused on offensive security, ethical hacking, and secure software development.

@@ -5,13 +5,13 @@ import { LinkArrow } from '@/components/ui/LinkArrow'
 const ENTRIES = [
   {
     platform: 'Docs',
-    title: '1nsidae · Writeups & Docs',
+    title: '1nsidiae · Writeups & Docs',
     meta: 'CTF writeups, exploit breakdowns, security research',
     href: '#',
   },
   {
     platform: 'Medium',
-    title: '1nsidae · Blog',
+    title: '1nsidiae · Blog',
     meta: 'medium.com · Articles, security write-ups and thoughts',
     href: 'https://medium.com/',
   },

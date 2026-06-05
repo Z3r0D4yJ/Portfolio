@@ -23,7 +23,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://insidiae.sh'),
-  title: '1nsidae · Portfolio',
+  title: '1nsidiae · Portfolio',
   description:
     'Cybersecurity & full stack student. CTF player, security researcher, builder.',
 }
