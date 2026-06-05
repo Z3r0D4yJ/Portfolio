@@ -3,7 +3,7 @@ import { FilePdf } from '@phosphor-icons/react/dist/ssr'
 export function CVButton() {
   return (
     <a
-      href="/cv/jasper-van-zeir-cv.pdf"
+      href="#"
       target="_blank"
       rel="noopener noreferrer"
       className="

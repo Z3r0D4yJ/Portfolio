@@ -7,21 +7,17 @@ export function About() {
       <FadeIn>
         <SectionLabel>About</SectionLabel>
         <p className="text-muted2 text-[15px] leading-[1.8] mb-7">
-          I&apos;m <strong className="text-text font-medium">Jasper Van Zeir</strong>, a Full Stack Development student at{' '}
-          <strong className="text-text font-medium">HOGENT</strong> and an active-duty{' '}
-          <strong className="text-text font-medium">Sergeant in the Belgian Armed Forces IT division</strong> since August 2025.
-          In 2026 I&apos;m transitioning to <strong className="text-text font-medium">HOWEST</strong> for a dedicated Cybersecurity
-          bachelor, with a long-term goal of joining{' '}
-          <strong className="text-text font-medium">Belgian Defence Cyber Command</strong> as a red team operator.
+          I&apos;m <strong className="text-text font-medium">1nsidae</strong>, a Full Stack Development student at{' '}
+          <strong className="text-text font-medium">HOGENT</strong>. In 2026 I&apos;m transitioning to{' '}
+          <strong className="text-text font-medium">HOWEST</strong> for a dedicated Cybersecurity bachelor,
+          focused on offensive security, ethical hacking, and secure software development.
         </p>
         <p className="text-muted2 text-[15px] leading-[1.8] mb-7">
           I deliberately started with full stack development - understanding how systems are{' '}
           <em className="not-italic text-text">built</em> is what makes understanding how they{' '}
           <em className="not-italic text-text">break</em> meaningful. I apply that in practice through{' '}
           <a
-            href="https://docs.jaspervanzeir.com"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#"
             className="text-accent no-underline border-b border-[rgba(0,255,136,0.2)] hover:border-accent transition-[border-color] duration-200"
           >
             CTF competitions
@@ -37,7 +33,7 @@ export function About() {
           against something I&apos;m supposed to.
         </p>
         <div className="flex flex-wrap gap-[10px] mt-6">
-          {['SGT · Belgian Defence', '50+ CTF Challenges', '20+ Writeups'].map((pill) => (
+          {['Full Stack Student', '50+ CTF Challenges', '20+ Writeups'].map((pill) => (
             <span
               key={pill}
               className="font-mono text-[11px] text-accent bg-accent-dim border border-[rgba(0,255,136,0.2)] px-[14px] py-[6px] tracking-[0.5px]"

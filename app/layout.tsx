@@ -22,9 +22,10 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Portfolio Jasper Van Zeir',
+  metadataBase: new URL('https://insidiae.sh'),
+  title: '1nsidae · Portfolio',
   description:
-    'Cybersecurity student, active-duty Sergeant in the Belgian Armed Forces IT division, and red team operator.',
+    'Cybersecurity & full stack student. CTF player, security researcher, builder.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
